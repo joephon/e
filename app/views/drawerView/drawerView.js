@@ -4,6 +4,7 @@ import React,{
   Component,
   View,
   Text,
+  StatusBar,
   TouchableOpacity,
  } from 'react-native'
 
