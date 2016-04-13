@@ -45,11 +45,15 @@ class App extends Component {
     return false
   }
 
+  updateTitle(title) {
+    this.setState({title: title})
+  }
+
   renderScene(route, navigator) {
     if (route.name === 'home') 
-      return <Home  navigator={navigator} />
+      return <Home  navigator={navigator}  updateTitle={this.updateTitle.bind(this)}/>
     else if (route.name === 'drawerView') 
-      return <DrawerView  navigator={navigator}/>
+      return <DrawerView  navigator={navigator} updateTitle={this.updateTitle.bind(this)}/>
   }
 
   showDrawer() { 

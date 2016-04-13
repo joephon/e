@@ -16,8 +16,8 @@ import React,{
     }
   }
 
+
   _pressButton() {
-    console.log(navigator)
     const { navigator } = this.props
     navigator.pop()
   }
