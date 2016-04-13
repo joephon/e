@@ -36,14 +36,14 @@ import React,{
     let deg = this.state.deg
     return (
       <View style={{flex:1, marginTop:0}}>
-        <TouchableNativeFeedback onPress={this.handleRotate.bind(this)} background={TouchableNativeFeedback.SelectableBackground()}>
+        <TouchableNativeFeedback onPress={this.handleRotate.bind(this)} background={TouchableNativeFeedback.Ripple('#fff',false)}>
           <View style={{height: 50,backgroundColor:'#ccc'}}>
             <Text>点我旋转</Text>
           </View>
         </TouchableNativeFeedback>
-        <Text style={{height:50 ,transform:[{rotateY: `${deg}deg'`}]}}>Hello I am rotateY</Text>
-        <Text style={{height:50 ,transform:[{rotateX: `${deg}deg'`}]}}>Hello I am rotateX</Text>
-        <Text style={{height:50 ,transform:[{rotate: `${deg}deg'`}]}}>Hello I am rotate</Text>
+        <Text style={{height:50 ,transform:[{rotateY: `${deg}deg`}]}}>Hello I am rotateY</Text>
+        <Text style={{height:50 ,transform:[{rotateX: `${deg}deg`}]}}>Hello I am rotateX</Text>
+        <Text style={{height:50 ,transform:[{rotate: `${deg}deg`}]}}>Hello I am rotate</Text>
         <TouchableOpacity onPress={this._pressButton.bind(this)}>
           <Text>点我跳转</Text>
         </TouchableOpacity>

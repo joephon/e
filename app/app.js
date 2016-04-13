@@ -16,7 +16,7 @@ import DrawerView from './views/drawerView/drawerView.js'
 
 let ToolbarAndroid = require('ToolbarAndroid')
 let BackAndroid = require('BackAndroid')
-let e = require('../images/e.png')
+let e = require('../images/categories.png')
 
 class App extends Component {
 
@@ -68,7 +68,9 @@ class App extends Component {
         drawerWidth={300}
         drawerPosition={DrawerLayoutAndroid.positions.Left}
         renderNavigationView={() => <DrawerView />}>
-        <StatusBar backgroundColor='#000'/>
+        <StatusBar
+          backgroundColor='#000'
+          />
         <ToolbarAndroid
           style={styles.toolbar}
           title={title}

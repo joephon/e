@@ -4,9 +4,12 @@ import React,{
   Component,
   View,
   Text,
+  Image,
   StatusBar,
-  TouchableOpacity,
+  TouchableNativeFeedback,
  } from 'react-native'
+
+ const styles = require('./styles.js').styles
 
  class DrawerView extends Component {
   constructor(props) {
@@ -24,11 +27,33 @@ import React,{
 
   render() {
     return (
-      <View style={{flex: 1, backgroundColor: '#fff'}}>
-        <Text style={{margin: 10, fontSize: 15, textAlign: 'left'}}>I'm in the Drawer!</Text>
-        <TouchableOpacity onPress={this._pressButton.bind(this)}>
-          <Text>点我跳转</Text>
-        </TouchableOpacity>
+      <View style={styles.container}>       
+        <Image source={require('../../../images/avatarBG.png')} style={styles.avatarBox}>
+          <Image source={require('../../../images/e@3x.png')} style={styles.avatar}/>
+          <Text style={styles.name}>Joephon</Text>
+        </Image>
+        <View>
+          <TouchableNativeFeedback background={TouchableNativeFeedback.Ripple('#fff', false)}>
+            <View style={styles.list}>
+              <View style={styles.li}>
+                <Image source={require('../../../images/categories.png')} style={styles.liImg}/>
+                <Text style={styles.liText}>点我跳转</Text>
+              </View>
+              <View style={styles.li}>
+                <Image source={require('../../../images/categories.png')} style={styles.liImg}/>
+                <Text style={styles.liText}>点我跳转</Text>
+              </View>
+              <View style={styles.li}>
+                <Image source={require('../../../images/categories.png')} style={styles.liImg}/>
+                <Text style={styles.liText}>点我跳转</Text>
+              </View>
+              <View style={styles.li}>
+                <Image source={require('../../../images/categories.png')} style={styles.liImg}/>
+                <Text style={styles.liText}>点我跳转</Text>
+              </View>
+            </View>
+          </TouchableNativeFeedback>
+        </View>
       </View>
     )
   }
