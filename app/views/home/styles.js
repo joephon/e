@@ -40,7 +40,7 @@ module.exports.styles = {
     color: '#777'
   },
   inputBox: {
-    margin: 10,
+    margin: 20,
   },
   textArea: {
     padding: 0,

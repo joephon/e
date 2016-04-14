@@ -7,16 +7,14 @@ import React, {
   StyleSheet,
   DrawerLayoutAndroid,
   ProgressBarAndroid,
+  BackAndroid,
   Text,
   View
 } from 'react-native';
 
 import Home from './views/home/home.js'
 import DrawerView from './views/drawerView/drawerView.js'
-
-// let ToolbarAndroid = require('ToolbarAndroid')
-let BackAndroid = require('BackAndroid')
-// let categories = require('../images/categories.png')
+import Gua from './views/gua/gua.js'
 
 class App extends Component {
 
@@ -51,6 +49,8 @@ class App extends Component {
       return <Home  navigator={navigator} showDrawer={this.showDrawer.bind(this)}/>
     else if (route.name === 'drawerView') 
       return <DrawerView  navigator={navigator} />
+    else if (route.name === 'gua') 
+      return <Gua  navigator={navigator} back={this.back.bind(this)}/>
   }
 
   renderDrawerView() {
@@ -61,7 +61,16 @@ class App extends Component {
     const nav = this.refs.navigator
     const drawer = this.refs.drawer
     drawer.closeDrawer()
-    nav.replace({name:name})
+    nav.push({name:name})
+  }
+
+  back() {
+    const nav = this.refs.navigator
+    const routers = nav.getCurrentRoutes()
+    if (routers.length > 0)
+      nav.pop()
+    else 
+      nav.push({name:'home'})
   }
 
   showDrawer() { 

@@ -21,7 +21,7 @@ import React,{
 
 
   goHome() {
-    this.props.nav('home')
+    this.props.nav('gua')
   }
 
   render() {

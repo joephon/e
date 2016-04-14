@@ -29,7 +29,7 @@ let placeholder = 'Hi 我是Joephon，这款应用的开发及维护者，如果
 
   goGua() {
     const { navigator } = this.props
-    navigator.push({name:'drawerView'})
+    navigator.push({name:'gua'})
   }
 
   handleRotate() {
