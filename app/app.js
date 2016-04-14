@@ -14,16 +14,16 @@ import React, {
 import Home from './views/home/home.js'
 import DrawerView from './views/drawerView/drawerView.js'
 
-let ToolbarAndroid = require('ToolbarAndroid')
+// let ToolbarAndroid = require('ToolbarAndroid')
 let BackAndroid = require('BackAndroid')
-let e = require('../images/categories.png')
+// let categories = require('../images/categories.png')
 
 class App extends Component {
 
   constructor(props) {
     super(props)
     this.state = {
-      title: '议易',
+      showDrawer: this.showDrawer.bind(this)
     }
   }
 
@@ -35,6 +35,7 @@ class App extends Component {
     BackAndroid.removeEventListener('hardwareBackPress', this.backPress.bind(this))
   }
 
+
   backPress() {
     const nav = this.refs.navigator
     const routers = nav.getCurrentRoutes()
@@ -45,15 +46,22 @@ class App extends Component {
     return false
   }
 
-  updateTitle(title) {
-    this.setState({title: title})
-  }
-
   renderScene(route, navigator) {
     if (route.name === 'home') 
-      return <Home  navigator={navigator}  updateTitle={this.updateTitle.bind(this)}/>
+      return <Home  navigator={navigator} showDrawer={this.showDrawer.bind(this)}/>
     else if (route.name === 'drawerView') 
-      return <DrawerView  navigator={navigator} updateTitle={this.updateTitle.bind(this)}/>
+      return <DrawerView  navigator={navigator} />
+  }
+
+  renderDrawerView() {
+    return <DrawerView nav={this.getNavigator.bind(this)} />
+  }
+
+  getNavigator(name) {
+    const nav = this.refs.navigator
+    const drawer = this.refs.drawer
+    drawer.closeDrawer()
+    nav.replace({name:name})
   }
 
   showDrawer() { 
@@ -61,22 +69,15 @@ class App extends Component {
   }
 
   render() {
-    let title = this.state.title
     return (
       <DrawerLayoutAndroid
         ref='drawer'
         drawerWidth={300}
         drawerPosition={DrawerLayoutAndroid.positions.Left}
-        renderNavigationView={() => <DrawerView />}>
+        renderNavigationView={() => this.renderDrawerView() }>
         <StatusBar
-          backgroundColor='#000'
+          backgroundColor='#111'
           />
-        <ToolbarAndroid
-          style={styles.toolbar}
-          title={title}
-          titleColor='#fff'
-          navIcon={e}
-          onIconClicked={this.showDrawer.bind(this)}/>
         <Navigator 
           ref='navigator'
           initialRoute={{name:'home'}}           

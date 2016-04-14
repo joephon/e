@@ -36,12 +36,12 @@ module.exports.styles = {
     borderBottomColor: '#111',
   },
   liImg: {
-    marginRight: 10,
+    marginRight: 15,
   },
   liText: {
     fontSize: 16,
     textAlign: 'left',
-    color: '#ccc',
+    color: '#999',
   },
 }
 

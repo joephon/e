@@ -20,9 +20,8 @@ import React,{
   }
 
 
-  _pressButton() {
-    const { navigator } = this.props
-    navigator.pop()
+  goHome() {
+    this.props.nav('home')
   }
 
   render() {
@@ -30,29 +29,35 @@ import React,{
       <View style={styles.container}>       
         <Image source={require('../../../images/avatarBG.png')} style={styles.avatarBox}>
           <Image source={require('../../../images/e@3x.png')} style={styles.avatar}/>
-          <Text style={styles.name}>Joephon</Text>
+          <Text style={styles.name}>议易</Text>
         </Image>
-        <View>
-          <TouchableNativeFeedback background={TouchableNativeFeedback.Ripple('#fff', false)}>
-            <View style={styles.list}>
+        <View>          
+          <View style={styles.list}>
+            <TouchableNativeFeedback onPress={this.goHome.bind(this)} >
               <View style={styles.li}>
-                <Image source={require('../../../images/categories.png')} style={styles.liImg}/>
-                <Text style={styles.liText}>点我跳转</Text>
+                <Image source={require('../../../images/gua.png')} style={styles.liImg}/>
+                <Text style={styles.liText}>六十四卦</Text>
               </View>
+            </TouchableNativeFeedback>
+            <TouchableNativeFeedback >
               <View style={styles.li}>
-                <Image source={require('../../../images/categories.png')} style={styles.liImg}/>
-                <Text style={styles.liText}>点我跳转</Text>
+                <Image source={require('../../../images/bu.png')} style={styles.liImg}/>
+                <Text style={styles.liText}>占卜问路</Text>
               </View>
+            </TouchableNativeFeedback>
+            <TouchableNativeFeedback >
               <View style={styles.li}>
-                <Image source={require('../../../images/categories.png')} style={styles.liImg}/>
-                <Text style={styles.liText}>点我跳转</Text>
+                <Image source={require('../../../images/user.png')} style={styles.liImg}/>
+                <Text style={styles.liText}>个人中心</Text>
               </View>
+            </TouchableNativeFeedback>
+            <TouchableNativeFeedback >
               <View style={styles.li}>
-                <Image source={require('../../../images/categories.png')} style={styles.liImg}/>
-                <Text style={styles.liText}>点我跳转</Text>
+                <Image source={require('../../../images/settings.png')} style={styles.liImg}/>
+                <Text style={styles.liText}>设置</Text>
               </View>
-            </View>
-          </TouchableNativeFeedback>
+            </TouchableNativeFeedback>
+          </View>
         </View>
       </View>
     )
