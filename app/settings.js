@@ -32,6 +32,7 @@ export default {
       bu: '占卜问路',
       user: '个人中心',
       settings: '设置',
+      submit: '提交',
     },
     EN: {
       home: 'home',
@@ -39,7 +40,18 @@ export default {
       bu: 'bu',
       user: 'user center',
       settings: 'settings',
+      submit: 'submit',
     }
+  },
+  tags: {
+    CN: {
+      gua: '品易',
+      bu: '占卜',
+      feedback: '给我反馈',
+    },
+    EN: {
+
+    },
   },
   placeholders: {
     CN: {
