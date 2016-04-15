@@ -35,24 +35,29 @@ module.exports.styles = {
     backgroundColor: '#eee'
   },
   tipText: {
-    marginLeft: 15,
+    marginLeft: 20,
     marginVertical: 10,
     color: '#777'
   },
   inputBox: {
+    overflow: 'hidden',
     margin: 20,
+    borderRadius: 5,
+    borderWidth: 1,
+    borderColor: '#eee',
+    backgroundColor: '#fff'
   },
   textArea: {
     padding: 0,
     paddingLeft: 10,
     paddingRight: 10,
-    backgroundColor: '#fff'
+    
   },
   submit: {
     height: 35,
-    marginLeft: 10,
-    marginRight: 10,
-    borderRadius: 10,
+    marginLeft: 20,
+    marginRight: 20,
+    borderRadius: 5,
     backgroundColor: '#9d55b8'
   },
   submitText: {

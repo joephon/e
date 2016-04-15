@@ -14,6 +14,7 @@ module.exports.styles = {
     borderBottomWidth: 1,
     backgroundColor: '#fff',
   },
+
 }
 
 

@@ -80,7 +80,6 @@ let placeholder = 'Hi 我是Joephon，这款应用的开发及维护者，如果
             style={styles.textArea}
             multiline={true}
             numberOfLines={6}
-            underlineColorAndroid='rgba(0,0,0,0)'
             placeholderTextColor='#ccc'
             placeholder={placeholder}
             value={feedback}

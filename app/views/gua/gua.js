@@ -3,6 +3,8 @@ import React, {
   ListView,
   View,
   Text,
+  TextInput,
+  Image,
   TouchableOpacity,
   TouchableHighlight,
   ToolbarAndroid,
@@ -10,7 +12,8 @@ import React, {
 
  let styles = require('./styles.js').styles
  let back = require('../../../images/back.png')
- let data = [{a:'222'},{a:'222333'},{a:'222'},{a:'222333'},{a:'222'},{a:'222333'},{a:'222'},{a:'222333'},{a:'222'},{a:'222333'},{a:'222'},{a:'ooxx'}]
+ let placeholder = '情输入要查询的卦象'
+ let data = require('../sources.js').gua
 
  class Gua extends Component {
   constructor(props) {
@@ -28,12 +31,19 @@ import React, {
           activeOpacity={0.5}
           underlayerColor='#000'>
             <View style={styles.rowData}>
-              <Text>{rowData.a}</Text>
+              <Text>{rowData.name}</Text>
             </View>
         </TouchableHighlight>
       )
   }
 
+  renderHeader() {
+    return(
+        <View>
+          <Text>hello</Text>
+        </View>
+      )
+  }
 
   render() {
     let dataSource = this.state.dataSource
