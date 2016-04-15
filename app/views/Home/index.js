@@ -11,13 +11,11 @@ import React,{
   TouchableNativeFeedback,
  } from 'react-native'
 
-let styles = require('./styles.js').styles
-let categories = require('../../../images/categories.png')
-let gua = require('../../../images/gua.png')
-let bu = require('../../../images/bu.png')
-let placeholder = 'Hi 我是Joephon，这款应用的开发及维护者，如果你有什么关于功能或者体验的建议，不妨在此留言，我会跟进反馈的 ：）' 
+import styles from './styles.js'
+import settings from '../../settings.js'
 
- class Home extends Component {
+
+export default class Home extends Component {
   constructor(props) {
     super(props)
     this.state = {
@@ -56,19 +54,19 @@ let placeholder = 'Hi 我是Joephon，这款应用的开发及维护者，如果
       <View style={styles.container}>
         <ToolbarAndroid
           style={styles.toolbar}
-          title='议易'
+          title={settings.tips.CN.home}
           titleColor='#fff'
-          navIcon={categories}
+          navIcon={settings.icons.categories}
           onIconClicked={this.props.showDrawer}/>
         <View style={styles.header}>
           <TouchableOpacity  onPress={this.goGua.bind(this)}>
             <View style={styles.headerItem}>
-              <Image source={gua} style={styles.headerItemImg} />
+              <Image source={settings.icons.gua} style={styles.headerItemImg} />
               <Text style={styles.headerItemText} >品易</Text>
             </View>
           </TouchableOpacity>
           <View style={styles.headerItem}>
-            <Image source={bu} style={styles.headerItemImg} />
+            <Image source={settings.icons.bu} style={styles.headerItemImg} />
             <Text style={styles.headerItemText} >占卜</Text>
           </View>
         </View>
@@ -81,7 +79,7 @@ let placeholder = 'Hi 我是Joephon，这款应用的开发及维护者，如果
             multiline={true}
             numberOfLines={6}
             placeholderTextColor='#ccc'
-            placeholder={placeholder}
+            placeholder={settings.placeholders.CN.home.feedback}
             value={feedback}
             onChangeText={this.handleFeedbackChange.bind(this)}/>
         </View>
@@ -93,4 +91,3 @@ let placeholder = 'Hi 我是Joephon，这款应用的开发及维护者，如果
   }
  }
 
-export default Home

@@ -1,4 +1,3 @@
-'use strict'
 
 import React, {
   Component,
@@ -12,11 +11,11 @@ import React, {
   View
 } from 'react-native';
 
-import Home from './views/home/home.js'
-import DrawerView from './views/drawerView/drawerView.js'
-import Gua from './views/gua/gua.js'
+import Home from './views/Home'
+import DrawerView from './views/DrawerView'
+import Gua from './views/Gua'
 
-class App extends Component {
+export default class App extends Component {
 
   constructor(props) {
     super(props)
@@ -51,6 +50,8 @@ class App extends Component {
       return <DrawerView  navigator={navigator} />
     else if (route.name === 'gua') 
       return <Gua  navigator={navigator} back={this.back.bind(this)}/>
+    else
+      return <Home  navigator={navigator} showDrawer={this.showDrawer.bind(this)}/>
   }
 
   renderDrawerView() {
@@ -120,6 +121,3 @@ const styles = StyleSheet.create({
     height: 56,
   },
 });
-
-
-export default App

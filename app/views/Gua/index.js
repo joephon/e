@@ -1,3 +1,4 @@
+
 import React, {
   Component, 
   ListView,
@@ -10,17 +11,16 @@ import React, {
   ToolbarAndroid,
  } from 'react-native'
 
- let styles = require('./styles.js').styles
- let back = require('../../../images/back.png')
- let placeholder = '情输入要查询的卦象'
- let data = require('../sources.js').gua
+ import styles from './styles.js'
+ import settings from '../../settings.js'
+ import source from '../../sources.js'
 
- class Gua extends Component {
+export default class Gua extends Component {
   constructor(props) {
     super(props)
     let ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2})
     this.state = {
-      dataSource: ds.cloneWithRows(data),
+      dataSource: ds.cloneWithRows(source.gua),
     }
   }
 
@@ -51,9 +51,9 @@ import React, {
         <View style={styles.container}>
           <ToolbarAndroid
             style={styles.toolbar}
-            title='六十四卦'
+            title={settings.tips.CN.gua}
             titleColor='#fff'
-            navIcon={back}
+            navIcon={settings.icons.back}
             onIconClicked={this.props.back} />
           <ListView
             dataSource={dataSource}
@@ -64,5 +64,3 @@ import React, {
   }
  }
 
-
- export default Gua

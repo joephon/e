@@ -1,4 +1,4 @@
-module.exports.styles = {
+export default {
   container: {
     flex: 1,
     backgroundColor: '#f5f5f5',
