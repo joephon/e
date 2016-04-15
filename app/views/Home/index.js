@@ -4,6 +4,7 @@ import React,{
   Component,
   ToolbarAndroid,
   View,
+  ScrollView,
   Text,
   TextInput,
   Image,
@@ -49,35 +50,46 @@ export default class Home extends Component {
           titleColor='#fff'
           navIcon={settings.icons.categories}
           onIconClicked={this.props.showDrawer}/>
-        <View style={styles.header}>
-          <TouchableOpacity  onPress={this.props.nav.bind(this, settings.routes.gua)}>
+        <ScrollView 
+          style={styles.scroll}
+          keyboardDismissMode='on-drag'>
+          <View style={styles.header}>
+            <TouchableOpacity  onPress={this.props.nav.bind(this, settings.routes.gua)}>
+              <View style={styles.headerItem}>
+                <Image source={settings.icons.gua} style={styles.headerItemImg} />
+                <Text style={styles.headerItemText} >{settings.tags.CN.gua}</Text>
+              </View>
+            </TouchableOpacity>
             <View style={styles.headerItem}>
-              <Image source={settings.icons.gua} style={styles.headerItemImg} />
-              <Text style={styles.headerItemText} >{settings.tags.CN.gua}</Text>
+              <Image source={settings.icons.bu} style={styles.headerItemImg} />
+              <Text style={styles.headerItemText} >{settings.tags.CN.bu}</Text>
             </View>
-          </TouchableOpacity>
-          <View style={styles.headerItem}>
-            <Image source={settings.icons.bu} style={styles.headerItemImg} />
-            <Text style={styles.headerItemText} >{settings.tags.CN.bu}</Text>
           </View>
-        </View>
-        <View style={styles.tip}>
-          <Text style={styles.tipText}>{settings.tags.CN.feedback}</Text>
-        </View>
-        <View style={styles.inputBox}>
-          <TextInput
-            style={styles.textArea}
-            multiline={true}
-            numberOfLines={6}
-            underlineColorAndroid='rgba(0,0,0,0)'
-            placeholderTextColor='#ccc'
-            placeholder={settings.placeholders.CN.home.feedback}
-            value={feedback}
-            onChangeText={this.handleFeedbackChange.bind(this)}/>
-        </View>
-        <TouchableOpacity style={styles.submit} onPress={this.handleSubmit.bind(this)}>
-          <Text style={styles.submitText}>提交</Text>
-        </TouchableOpacity>
+          <View style={styles.tip}>
+            <Text style={styles.tipText}>{settings.tags.CN.about}</Text>
+          </View>
+          <View style={styles.about}>
+            <Text style={styles.aboutText}>{settings.tips.CN.about}</Text>
+          </View>
+
+          <View style={styles.tip}>
+            <Text style={styles.tipText}>{settings.tags.CN.feedback}</Text>
+          </View>
+          <View style={styles.inputBox}>
+            <TextInput
+              style={styles.textArea}
+              multiline={true}
+              numberOfLines={6}
+              underlineColorAndroid='rgba(0,0,0,0)'
+              placeholderTextColor='#ccc'
+              placeholder={settings.placeholders.CN.home.feedback}
+              value={feedback}
+              onChangeText={this.handleFeedbackChange.bind(this)}/>
+          </View>
+          <TouchableOpacity style={styles.submit} onPress={this.handleSubmit.bind(this)}>
+            <Text style={styles.submitText}>提交</Text>
+          </TouchableOpacity>
+        </ScrollView>
       </View>
     )
   }

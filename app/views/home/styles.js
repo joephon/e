@@ -7,6 +7,9 @@ export default {
     backgroundColor: '#000',
     height: 56,
   },
+  scroll: {
+    // paddingBottom: 40, 
+  },
   header: {
     flexDirection: 'row',
     justifyContent: 'center',
@@ -37,7 +40,21 @@ export default {
   tipText: {
     marginLeft: 20,
     marginVertical: 10,
+    fontSize: 16,
     color: '#777'
+  },
+  about: {
+    marginHorizontal: 20,
+    marginVertical: 10,
+    // padding: 8,
+    // borderRadius: 5,
+    // borderWidth: 1,
+    // borderColor: '#eee',
+    // backgroundColor: '#fff'
+  },
+  aboutText: {
+    fontSize: 14,
+    color: '#666',
   },
   inputBox: {
     overflow: 'hidden',
@@ -57,6 +74,7 @@ export default {
     height: 35,
     marginLeft: 20,
     marginRight: 20,
+    marginBottom: 30,
     borderRadius: 5,
     backgroundColor: '#9d55b8'
   },
