@@ -7,13 +7,6 @@ export default {
     backgroundColor: '#000',
     height: 56,   
   },
-  rowData: {
-    flex: 1,
-    height: 65,
-    borderColor: '#eee',
-    borderBottomWidth: 1,
-    backgroundColor: '#fff',
-  },
 
 }
 

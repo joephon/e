@@ -14,35 +14,15 @@ import React, {
  import styles from './styles.js'
  import settings from '../../settings.js'
  import source from '../../sources.js'
+ import ListItem from './ListItem'
 
 export default class Gua extends Component {
   constructor(props) {
     super(props)
     let ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2})
     this.state = {
-      dataSource: ds.cloneWithRows(source.gua),
+      dataSource: ds.cloneWithRows(source),
     }
-  }
-
-  renderRow(rowData) {
-    return(
-        <TouchableHighlight
-          style={{backgroundColor:'#f5f5f5'}}
-          activeOpacity={0.5}
-          underlayerColor='#000'>
-            <View style={styles.rowData}>
-              <Text>{rowData.name}</Text>
-            </View>
-        </TouchableHighlight>
-      )
-  }
-
-  renderHeader() {
-    return(
-        <View>
-          <Text>hello</Text>
-        </View>
-      )
   }
 
   render() {
@@ -57,7 +37,7 @@ export default class Gua extends Component {
             onIconClicked={this.props.back} />
           <ListView
             dataSource={dataSource}
-            renderRow={this.renderRow.bind(this)}
+            renderRow={(rowData) => <ListItem rowData={rowData} {...this.props}/>}
            />
         </View>
       )

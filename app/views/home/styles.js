@@ -46,11 +46,6 @@ export default {
   about: {
     marginHorizontal: 20,
     marginVertical: 10,
-    // padding: 8,
-    // borderRadius: 5,
-    // borderWidth: 1,
-    // borderColor: '#eee',
-    // backgroundColor: '#fff'
   },
   aboutText: {
     fontSize: 14,

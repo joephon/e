@@ -51,8 +51,7 @@ export default class Home extends Component {
           navIcon={settings.icons.categories}
           onIconClicked={this.props.showDrawer}/>
         <ScrollView 
-          style={styles.scroll}
-          keyboardDismissMode='on-drag'>
+          style={styles.scroll}>
           <View style={styles.header}>
             <TouchableOpacity  onPress={this.props.nav.bind(this, settings.routes.gua)}>
               <View style={styles.headerItem}>

@@ -48,9 +48,9 @@ export default class App extends Component {
     else if (route.name === 'drawerView') 
       return <DrawerView  navigator={navigator} />
     else if (route.name === 'gua') 
-      return <Gua  navigator={navigator} back={this.back.bind(this)}/>
+      return <Gua  navigator={navigator} back={this.back.bind(this)} nav={this.getNavigator.bind(this)}/>
     else
-      return <Home  navigator={navigator} showDrawer={this.showDrawer.bind(this)}/>
+      return <Home  navigator={navigator} showDrawer={this.showDrawer.bind(this)} nav={this.getNavigator.bind(this)}/>
   }
 
   renderDrawerView() {
