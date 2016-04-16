@@ -25,14 +25,14 @@ export default class ItemDetails extends Component {
           <ScrollView>
             <View style={styles.header}>
               <View style={styles.headerLeft}>
+                <Image style={styles.img} source={carryData.img} />
+                <Text style={styles.leftTextTip}>{carryData.tip}</Text>
+              </View>
+              <View style={styles.headerRight}>
                 <View style={styles.split}>
                   <Text style={styles.splitText}>{settings.tags.CN.guaci}</Text>
                 </View>
-                <Text style={styles.leftTextGua}>{carryData.gua}</Text>
-              </View>
-              <View style={styles.headerRight}>
-                <Image style={styles.img} source={carryData.img} />
-                <Text style={styles.rightTextTip}>{carryData.tip}</Text>
+                <Text style={styles.rightTextGua}>{carryData.gua}</Text>
               </View>
             </View>
             <View style={styles.body}>
@@ -43,7 +43,7 @@ export default class ItemDetails extends Component {
                 {
                   carryData.yaos.map((item, index) => {
                     return(
-                        <Text key={index} style={styles.leftTextGua}>{item}</Text>
+                        <Text key={index} style={styles.rightTextGua}>{item}</Text>
                       )
                   })
                 }

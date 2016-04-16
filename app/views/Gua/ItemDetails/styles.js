@@ -9,6 +9,8 @@ export default {
   },
   header: {
     flexDirection: 'row',
+    alignItems: 'flex-start',
+    justifyContent: 'flex-start',
     paddingHorizontal: 20,
     paddingVertical: 20,
     // padding: 10,
@@ -23,7 +25,6 @@ export default {
     backgroundColor: '#eee'
   },
   split: {
-    // padding: 5,
     marginBottom: 12,
     borderBottomWidth: 2,
     borderBottomColor: '#ccc'
@@ -32,22 +33,22 @@ export default {
     paddingBottom: 3,
     fontSize: 20,
   },
-  headerLeft: {
-    width: 240,
+  headerRight: {
+    flex:1
   },
-  leftTextHint: {
+  rightTextHint: {
     // marginBottom: 5,
     fontSize: 17,
     color: '#555',
   },
-  leftTextGua: {
+  rightTextGua: {
     marginBottom: 5,
     fontSize: 17,
   },
-  headerRight: {
-    paddingLeft: 28,
+  headerLeft: {
+    paddingRight: 20,
   },
-  rightTextTip: {
+  leftTextTip: {
     marginTop: 8,
     fontSize: 30,
     fontWeight: 'bold',
