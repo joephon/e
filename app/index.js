@@ -66,7 +66,7 @@ export default class App extends Component {
     const nav = this.refs.navigator
     const drawer = this.refs.drawer
     drawer.closeDrawer()
-    this.setState({carryData: carryData}, nav.push({name:name}))
+    this.setState({carryData: carryData}, () => nav.push({name:name}))
   }
 
   back() {
