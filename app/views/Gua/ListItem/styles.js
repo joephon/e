@@ -39,7 +39,7 @@ export default {
   },
   go: {
     position: 'absolute',
-    right: 5,
+    right: 15,
     width: 15,
     height: 15,
     marginVertical: 30,

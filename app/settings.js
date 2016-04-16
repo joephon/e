@@ -1,7 +1,7 @@
  const avatarBG = require('../images/avatarBG.png')
  const e = require('../images/e.png')
  const categories = require('../images/categories.png')
- const gua = require('../images/gua.png')
+ const gua = require('../images/art.png')
  const bu = require('../images/bu.png')
  const user = require('../images/user.png')
  const settings = require('../images/settings.png')

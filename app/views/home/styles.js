@@ -24,13 +24,13 @@ export default {
   },
   iconGua: {
     alignSelf: 'center',
-    width: 50,
-    height: 50,
+    width: 40,
+    height: 40,
   },
   iconBu: {
     alignSelf: 'center',
-    width: 45,
-    height: 55,
+    width: 40,
+    height: 40,
   },
   headerItemText: {
     marginTop: 8,
