@@ -26,7 +26,6 @@ export default class ItemDetails extends Component {
             <View style={styles.header}>
               <View style={styles.headerLeft}>
                 <Image style={styles.img} source={carryData.img} />
-                <Text style={styles.leftTextTip}>{carryData.tip}</Text>
               </View>
               <View style={styles.headerRight}>
                 <View style={styles.split}>

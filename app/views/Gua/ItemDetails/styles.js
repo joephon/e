@@ -48,12 +48,6 @@ export default {
   headerLeft: {
     paddingRight: 20,
   },
-  leftTextTip: {
-    marginTop: 8,
-    fontSize: 30,
-    fontWeight: 'bold',
-    textAlign: 'center'
-  },
   img: {
     width: 70,
     height: 110,
