@@ -1,5 +1,7 @@
 export default {
   li: {
+    flex: 1,
+    alignItems: 'center',
     flexDirection: 'row',
     width: 300,
     padding: 15,

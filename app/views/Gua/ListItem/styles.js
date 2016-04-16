@@ -10,31 +10,30 @@ export default {
   img: {
     width: 22,
     height: 36,
-    marginLeft: 14,
-    marginRight: 12,
+    marginLeft: 20,
+    marginRight: 15,
     marginVertical: 18,
   },
   textBox: {
+    flex: 1,
     flexDirection: 'row',
   },
   tip: {
+    flex: 2,
     marginVertical: 13,
     fontSize: 32,
     color: '#666',
   },
   description: {
+    flex: 5,
     paddingTop: 15,
   },
   tag: {
-    // marginVertical: 26,
-    marginLeft: 20,
     marginBottom: 5,
     fontSize: 13,
     color: '#888',
   },
   hint: {
-    // marginVertical: 26,
-    marginLeft: 20,
     fontSize: 15,
     color: '#888',
   },

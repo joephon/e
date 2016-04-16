@@ -22,10 +22,15 @@ export default {
     height: 140,
     width: 150,
   },
-  headerItemImg: {
+  iconGua: {
     alignSelf: 'center',
-    width: 40,
-    height: 40,
+    width: 50,
+    height: 50,
+  },
+  iconBu: {
+    alignSelf: 'center',
+    width: 45,
+    height: 55,
   },
   headerItemText: {
     marginTop: 8,
