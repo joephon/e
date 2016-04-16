@@ -11,6 +11,7 @@ export default {
   routes: {
     home: 'home',
     gua: 'gua',
+    guaDetails: 'guaDetails',
     bu: 'bu',
     user: 'user',
     settings: 'settings',
@@ -50,6 +51,8 @@ export default {
       bu: '占卜',
       feedback: '给我反馈',
       about: '议易是什么',
+      guaci: '卦辞',
+      yaoci: '爻辞',
     },
     EN: {
 

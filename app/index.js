@@ -13,13 +13,14 @@ import React, {
 import Home from './views/Home'
 import DrawerView from './views/DrawerView'
 import Gua from './views/Gua'
+import GuaDetails from './views/Gua/ItemDetails'
 
 export default class App extends Component {
 
   constructor(props) {
     super(props)
     this.state = {
-      
+      carryData: '',
     }
   }
 
@@ -42,13 +43,15 @@ export default class App extends Component {
     return false
   }
 
-  renderScene(route, navigator) {
+  renderScene(route, navigator, carryData) {
     if (route.name === 'home') 
       return <Home  navigator={navigator} showDrawer={this.showDrawer.bind(this)} nav={this.getNavigator.bind(this)}/>
     else if (route.name === 'drawerView') 
       return <DrawerView  navigator={navigator} />
     else if (route.name === 'gua') 
       return <Gua  navigator={navigator} back={this.back.bind(this)} nav={this.getNavigator.bind(this)}/>
+    else if (route.name === 'guaDetails') 
+      return <GuaDetails  navigator={navigator} back={this.back.bind(this)} nav={this.getNavigator.bind(this)} carryData={this.state.carryData}/>
     else
       return <Home  navigator={navigator} showDrawer={this.showDrawer.bind(this)} nav={this.getNavigator.bind(this)}/>
   }
@@ -57,11 +60,13 @@ export default class App extends Component {
     return <DrawerView nav={this.getNavigator.bind(this)} />
   }
 
-  getNavigator(name) {
+  getNavigator(name, carryData) {
+    if (!carryData)
+      carryData = ''
     const nav = this.refs.navigator
     const drawer = this.refs.drawer
     drawer.closeDrawer()
-    nav.push({name:name})
+    this.setState({carryData: carryData}, nav.push({name:name}))
   }
 
   back() {
@@ -78,6 +83,7 @@ export default class App extends Component {
   }
 
   render() {
+    let carryData = this.state.carryData
     return (
       <DrawerLayoutAndroid
         ref='drawer'
@@ -88,9 +94,7 @@ export default class App extends Component {
         <Navigator 
           ref='navigator'
           initialRoute={{name:'home'}}           
-          renderScene={(route, navigator) => {
-            return this.renderScene(route, navigator)
-          }}/>
+          renderScene={(route, navigator, carryData) => this.renderScene(route, navigator, carryData)}/>
       </DrawerLayoutAndroid>
     );
   }

@@ -14,12 +14,15 @@ export default class ListItem extends Component {
   render() {
     let rowData = this.props.rowData
     return(
-        <TouchableNativeFeedback>
+        <TouchableNativeFeedback onPress={this.props.nav.bind(this,settings.routes.guaDetails, rowData)}>
           <View style={styles.rowData}>
             <Image style={styles.img} source={rowData.img}/>
             <View style={styles.textBox}>
               <Text style={styles.tip}>{rowData.tip}</Text>
-              <Text style={styles.hint}>{rowData.hint}</Text>
+              <View style={styles.description}>
+                <Text style={styles.tag}>{rowData.tag}</Text>
+                <Text style={styles.hint}>{rowData.hint}</Text>
+              </View>
             </View>
             <Image style={styles.go} source={settings.icons.back}/>
           </View>
