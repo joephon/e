@@ -23,6 +23,15 @@ export default {
     fontSize: 14,
     color: '#9d55b8'
   },
+  underLine: {
+    alignSelf: 'center',
+    // position: 'relative',
+    // left: 0,
+    width: 40,
+    height: 3,
+    marginLeft: -178,
+    backgroundColor: '#9d55b8'
+  },
   pager: {
     flex: 1,
   },

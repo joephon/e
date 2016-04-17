@@ -17,6 +17,7 @@ export default class Bu extends Component {
     super(props)
     this.state = {
       pageIndex: 0,
+      pos: -178,
     }
   }
 
@@ -24,8 +25,11 @@ export default class Bu extends Component {
     let viewPage = this.refs.viewPage
     if (pageIndex != this.state.pageIndex)
         this.showToast(pageIndex)
+    else
+      return
     this.setState({pageIndex: pageIndex},() => {
       viewPage.setPage(pageIndex)
+      this.moveUnderLine()
     })
   }
 
@@ -34,6 +38,7 @@ export default class Bu extends Component {
     pageIndex = (pageIndex == 1 ? 0 : 1)
     this.setState({pageIndex: pageIndex}, () => {
       this.showToast(pageIndex)
+      this.moveUnderLine()
     })
   }
 
@@ -42,9 +47,30 @@ export default class Bu extends Component {
     ToastAndroid.show(tip,ToastAndroid.SHORT)
   }
 
+  moveUnderLine(event) {
+    let pos = this.state.pos 
+    let pageIndex = this.state.pageIndex
+    if (pageIndex == 1) {
+      for (let i = 1; i <= 10; i ++) {
+        setTimeout(() => {
+          this.setState({pos: pos + 36 * i})
+        }, i * 10)
+      }
+    }
+    else {
+      for (let i = 1; i <= 10; i ++) {
+        setTimeout(() => {
+          this.setState({pos: pos + -36 * i})
+        }, i * 10)
+      }
+    }
+
+  }
+
   render() {
     let back = this.props.back
     let pageIndex = this.state.pageIndex
+    let pos = this.state.pos
     return(
         <View style={styles.container}>
           <ToolbarAndroid
@@ -66,7 +92,7 @@ export default class Bu extends Component {
               </View>
             </TouchableNativeFeedback>
           </View>
-          <View>
+          <View style={[styles.underLine,{marginLeft: pos}]}>
           </View>
           <ViewPagerAndroid
             ref='viewPage'
