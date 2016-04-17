@@ -14,33 +14,26 @@ export default {
   },
   segmentItem: {
     flex: 1,
-  },
-  segmentItemRight: {
-    flex: 1,
+    height: 35,
   },
   segmentText: {
+    marginVertical: 9,
     textAlign: 'center',
     fontSize: 14,
     color: '#9d55b8'
   },
   underLine: {
     alignSelf: 'center',
-    // position: 'relative',
-    // left: 0,
-    width: 40,
+    width: 64,
     height: 3,
-    marginLeft: -178,
+    marginLeft: -177,
     backgroundColor: '#9d55b8'
   },
   pager: {
     flex: 1,
   },
-  pageOne: {
+  page: {
     flex: 1,
-    backgroundColor: '#ccc',
-  },
-  pageTwo: {
-    flex: 1,
-    backgroundColor: '#fff',
-  },
+    backgroundColor: '#fff'
+  }
 }

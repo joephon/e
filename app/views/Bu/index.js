@@ -11,13 +11,15 @@ import React, {
 
 import styles from './styles.js'
 import settings from '../../settings.js'
+import Easy from './Easy'
+import Strict from './Strict'
 
 export default class Bu extends Component {
   constructor(props) {
     super(props)
     this.state = {
       pageIndex: 0,
-      pos: -178,
+      pos: -177,
     }
   }
 
@@ -101,15 +103,15 @@ export default class Bu extends Component {
             onPageSelected={this.updatePage.bind(this)}>
             <View>
               <TouchableNativeFeedback>
-                <View style={styles.pageOne}>
-                  <Text>Hi I am page 0</Text>
+                <View style={styles.page}>
+                  <Easy {...this.props} />
                 </View>
               </TouchableNativeFeedback>
             </View>
             <View>
               <TouchableNativeFeedback>
-                <View style={styles.pageTwo}>
-                  <Text>Hi I am page 1</Text>
+                <View style={styles.page}>
+                  <Strict {...this.props} />
                 </View>
               </TouchableNativeFeedback>
             </View>
