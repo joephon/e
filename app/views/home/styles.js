@@ -24,7 +24,7 @@ export default {
   },
   iconGua: {
     alignSelf: 'center',
-    width: 40,
+    width: 41,
     height: 40,
   },
   iconBu: {

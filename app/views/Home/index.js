@@ -59,10 +59,12 @@ export default class Home extends Component {
                 <Text style={styles.headerItemText} >{settings.tags.CN.gua}</Text>
               </View>
             </TouchableOpacity>
-            <View style={styles.headerItem}>
-              <Image source={settings.icons.bu} style={styles.iconBu} />
-              <Text style={styles.headerItemText} >{settings.tags.CN.bu}</Text>
-            </View>
+            <TouchableOpacity  onPress={this.props.nav.bind(this, settings.routes.bu)}>
+              <View style={styles.headerItem}>
+                <Image source={settings.icons.bu} style={styles.iconBu} />
+                <Text style={styles.headerItemText} >{settings.tags.CN.bu}</Text>
+              </View>
+            </TouchableOpacity>
           </View>
           <View style={styles.tip}>
             <Text style={styles.tipText}>{settings.tags.CN.about}</Text>

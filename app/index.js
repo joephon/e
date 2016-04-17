@@ -14,6 +14,7 @@ import Home from './views/Home'
 import DrawerView from './views/DrawerView'
 import Gua from './views/Gua'
 import GuaDetails from './views/Gua/ItemDetails'
+import Bu from './views/Bu'
 
 export default class App extends Component {
 
@@ -52,6 +53,8 @@ export default class App extends Component {
       return <Gua  navigator={navigator} back={this.back.bind(this)} nav={this.getNavigator.bind(this)}/>
     else if (route.name === 'guaDetails') 
       return <GuaDetails  navigator={navigator} back={this.back.bind(this)} nav={this.getNavigator.bind(this)} carryData={this.state.carryData}/>
+    else if (route.name === 'bu') 
+      return <Bu navigator={navigator} back={this.back.bind(this)} nav={this.getNavigator.bind(this)}/>
     else
       return <Home  navigator={navigator} showDrawer={this.showDrawer.bind(this)} nav={this.getNavigator.bind(this)}/>
   }

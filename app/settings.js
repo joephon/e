@@ -1,7 +1,7 @@
  const avatarBG = require('../images/avatarBG.png')
  const e = require('../images/e.png')
  const categories = require('../images/categories.png')
- const gua = require('../images/art.png')
+ const gua = require('../images/gua.png')
  const bu = require('../images/bu.png')
  const user = require('../images/user.png')
  const settings = require('../images/settings.png')
@@ -30,7 +30,7 @@ export default {
     CN: {
       home: '议易',
       gua: '六十四卦',
-      bu: '占卜问路',
+      bu: '占卜解惑',
       user: '个人中心',
       settings: '设置',
       submit: '提交',
