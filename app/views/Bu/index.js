@@ -6,6 +6,7 @@ import React, {
   Text,
   TouchableNativeFeedback,
   Image,
+  ToastAndroid,
 } from 'react-native'
 
 import styles from './styles.js'
@@ -19,15 +20,26 @@ export default class Bu extends Component {
     }
   }
 
-  renderPages() {
-    let length = [0, 1]
-    length.map(index => {
-      return(
-        <View key={index} style={styles.pageOne}>
-          <Text>{`Hi I am page${index}`}</Text>
-        </View>
-        )
+  setPage(pageIndex) {
+    let viewPage = this.refs.viewPage
+    if (pageIndex != this.state.pageIndex)
+        this.showToast(pageIndex)
+    this.setState({pageIndex: pageIndex},() => {
+      viewPage.setPage(pageIndex)
     })
+  }
+
+  updatePage() {
+    let pageIndex = this.state.pageIndex
+    pageIndex = (pageIndex == 1 ? 0 : 1)
+    this.setState({pageIndex: pageIndex}, () => {
+      this.showToast(pageIndex)
+    })
+  }
+
+  showToast(pageIndex) {
+    let tip = pageIndex ? settings.tags.CN.strict : settings.tags.CN.easy
+    ToastAndroid.show(tip,ToastAndroid.SHORT)
   }
 
   render() {
@@ -42,14 +54,25 @@ export default class Bu extends Component {
             navIcon={settings.icons.back}
             onIconClicked={back}
             />
+          <View style={styles.segment}>
+            <TouchableNativeFeedback onPress={this.setPage.bind(this,0)}>
+              <View style={styles.segmentItem}>
+                <Text style={[styles.segmentText,{color: (pageIndex ? '#ccc' : '#9d55b8')}]}>{settings.tags.CN.easy}</Text>
+              </View>
+            </TouchableNativeFeedback>
+            <TouchableNativeFeedback onPress={this.setPage.bind(this,1)}>
+              <View style={styles.segmentItem}>
+                <Text style={[styles.segmentText,{color: (pageIndex ? '#9d55b8' : '#ccc')}]}>{settings.tags.CN.strict}</Text>
+              </View>
+            </TouchableNativeFeedback>
+          </View>
           <View>
-            <Text>{pageIndex ? '专业模式' : '简易模式'}</Text>
           </View>
           <ViewPagerAndroid
+            ref='viewPage'
             style={styles.pager}
-            initialPage={pageIndex}
-            onPageSelected={() => this.setState({pageIndex: pageIndex ? 0 : 1})}
-            >
+            initialPage={0}
+            onPageSelected={this.updatePage.bind(this)}>
             <View>
               <TouchableNativeFeedback>
                 <View style={styles.pageOne}>

@@ -53,6 +53,8 @@ export default {
       about: '议易是什么',
       guaci: '卦辞',
       yaoci: '爻辞',
+      easy: '简易模式',
+      strict: '专业模式',
     },
     EN: {
 
