@@ -7,7 +7,8 @@ import React, {
   ProgressBarAndroid,
   BackAndroid,
   Text,
-  View
+  View,
+  Platform,
 } from 'react-native';
 
 import Scene from './views/Scene'
@@ -24,6 +25,7 @@ export default class App extends Component {
     this.state = {
       carryData: '',
       showScene: true,
+      oldVersion: false,
     }
   }
 
@@ -40,9 +42,15 @@ export default class App extends Component {
   }
 
   hideScene() {
+    this.checkPlatform()
     setTimeout(() => {
       this.setState({showScene: false})
     },4000)
+  }
+
+  checkPlatform() {
+    if (Platform.Version < 21)
+      this.setState({oldVersion: true})
   }
 
   backPress() {
@@ -99,10 +107,11 @@ export default class App extends Component {
   render() {
     let carryData = this.state.carryData
     let showScene = this.state.showScene
+    let oldVersion = this.state.oldVersion
     if (showScene)
       return( 
           <View style={{flex: 1}}>
-            <StatusBar hidden={true}/>
+            <StatusBar hidden={oldVersion ? false : true}/>
             <Scene />
           </View>
         )
