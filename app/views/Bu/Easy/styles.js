@@ -3,8 +3,14 @@ export default {
     flex: 1, 
     justifyContent: 'center',
   },
-  bu: {
+  buBox: {
     alignSelf: 'center',
+    width: 80,
+    height: 80,
+    marginVertical: 30,
+  },
+  bu: {
+    // alignSelf: 'center',
     width: 80,
     height: 80,
   },
@@ -13,7 +19,7 @@ export default {
     flexDirection: 'row',
     width: 300,
     height: 36,
-    marginTop: 10,
+    marginBottom: 10,
     borderRadius: 3,
     backgroundColor: '#9d55b8',
   },

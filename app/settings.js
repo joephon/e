@@ -55,6 +55,12 @@ export default {
       yaoci: '爻辞',
       easy: '简易模式',
       strict: '专业模式',
+      yaoOne: '初爻',
+      yaoTwo: '二爻',
+      yaoThree: '三爻',
+      yaoFour: '四爻',
+      yaoFive: '五爻',
+      yaoSix: '上爻',
     },
     EN: {
 

@@ -3,6 +3,9 @@ import React, {
   View,
   Text,
   Image,
+  Vibration,
+  TouchableOpacity,
+  ScrollView,
 } from 'react-native'
 
 import styles from './styles.js'
@@ -25,7 +28,32 @@ export default class Easy extends Component {
       rowFour: false,
       rowFive: false,
       rowSix: false,
+      deg: 0,
     }
+  }
+
+  begin() {
+    Vibration.vibrate()
+    this.shake()
+  }
+
+  shake() {
+    let deg = 0
+    for (let i = 1; i <= 10; i ++) {
+      setTimeout(() => {
+        this.setState({deg: deg + i * 5 })
+      },i * 10)
+    }
+    setTimeout(() => {
+      for (let i = 1; i <= 10; i ++) {
+        setTimeout(() => {
+          this.setState({deg: deg - i * 5 })
+        },i * 10)
+      }
+    }, 500)
+    setTimeout(() => {
+      this.setState({deg: 0})
+    },1100)
   }
 
   render() {
@@ -41,12 +69,96 @@ export default class Easy extends Component {
     let rowFour = this.state.rowFour
     let rowFive = this.state.rowFive
     let rowSix = this.state.rowSix
+    let deg = this.state.deg
     return(
+      <ScrollView>
         <View style={styles.container}>
-          <Image style={styles.bu} source={settings.icons.bu} />
+          <TouchableOpacity style={[styles.buBox, {transform:[{rotate: `${deg}deg`},]}]} onPress={this.begin.bind(this)}>
+            <Image style={styles.bu} source={settings.icons.bu} />
+          </TouchableOpacity>
           <View style={styles.yao}>
             <View style={styles.yaoLeft}>
-              <Text style={styles.yaoText}>上爻</Text>
+              <Text style={styles.yaoText}>{settings.tags.CN.yaoSix}</Text>
+            </View>
+            <View style={styles.yaoCenter}>
+              <View style={[styles.yaoDefault,{backgroundColor: rowSix ? '#000' : '#9d55b8'}]}>
+              </View>
+              <View style={[styles.yaoVar,{backgroundColor: varColorSix ? '#000' : '#9d55b8'}]}>
+              </View>
+              <View style={[styles.yaoDefault,{backgroundColor: rowSix ? '#000' : '#9d55b8'}]}>
+              </View>
+            </View>
+            <View style={styles.yaoRight}>
+              <Text style={styles.yaoText}>老阴</Text>
+            </View>
+          </View>
+          <View style={styles.yao}>
+            <View style={styles.yaoLeft}>
+              <Text style={styles.yaoText}>{settings.tags.CN.yaoFive}</Text>
+            </View>
+            <View style={styles.yaoCenter}>
+              <View style={[styles.yaoDefault,{backgroundColor: rowFive ? '#000' : '#9d55b8'}]}>
+              </View>
+              <View style={[styles.yaoVar,{backgroundColor: varColorFive ? '#000' : '#9d55b8'}]}>
+              </View>
+              <View style={[styles.yaoDefault,{backgroundColor: rowFive ? '#000' : '#9d55b8'}]}>
+              </View>
+            </View>
+            <View style={styles.yaoRight}>
+              <Text style={styles.yaoText}>老阴</Text>
+            </View>
+          </View>
+          <View style={styles.yao}>
+            <View style={styles.yaoLeft}>
+              <Text style={styles.yaoText}>{settings.tags.CN.yaoFour}</Text>
+            </View>
+            <View style={styles.yaoCenter}>
+              <View style={[styles.yaoDefault,{backgroundColor: rowFour ? '#000' : '#9d55b8'}]}>
+              </View>
+              <View style={[styles.yaoVar,{backgroundColor: varColorFour ? '#000' : '#9d55b8'}]}>
+              </View>
+              <View style={[styles.yaoDefault,{backgroundColor: rowFour ? '#000' : '#9d55b8'}]}>
+              </View>
+            </View>
+            <View style={styles.yaoRight}>
+              <Text style={styles.yaoText}>老阴</Text>
+            </View>
+          </View>
+          <View style={styles.yao}>
+            <View style={styles.yaoLeft}>
+              <Text style={styles.yaoText}>{settings.tags.CN.yaoThree}</Text>
+            </View>
+            <View style={styles.yaoCenter}>
+              <View style={[styles.yaoDefault,{backgroundColor: rowThree ? '#000' : '#9d55b8'}]}>
+              </View>
+              <View style={[styles.yaoVar,{backgroundColor: varColorThree ? '#000' : '#9d55b8'}]}>
+              </View>
+              <View style={[styles.yaoDefault,{backgroundColor: rowThree ? '#000' : '#9d55b8'}]}>
+              </View>
+            </View>
+            <View style={styles.yaoRight}>
+              <Text style={styles.yaoText}>老阴</Text>
+            </View>
+          </View>
+          <View style={styles.yao}>
+            <View style={styles.yaoLeft}>
+              <Text style={styles.yaoText}>{settings.tags.CN.yaoTwo}</Text>
+            </View>
+            <View style={styles.yaoCenter}>
+              <View style={[styles.yaoDefault,{backgroundColor: rowTwo ? '#000' : '#9d55b8'}]}>
+              </View>
+              <View style={[styles.yaoVar,{backgroundColor: varColorTwo ? '#000' : '#9d55b8'}]}>
+              </View>
+              <View style={[styles.yaoDefault,{backgroundColor: rowTwo ? '#000' : '#9d55b8'}]}>
+              </View>
+            </View>
+            <View style={styles.yaoRight}>
+              <Text style={styles.yaoText}>老阴</Text>
+            </View>
+          </View>
+          <View style={styles.yao}>
+            <View style={styles.yaoLeft}>
+              <Text style={styles.yaoText}>{settings.tags.CN.yaoOne}</Text>
             </View>
             <View style={styles.yaoCenter}>
               <View style={[styles.yaoDefault,{backgroundColor: rowOne ? '#000' : '#9d55b8'}]}>
@@ -60,8 +172,8 @@ export default class Easy extends Component {
               <Text style={styles.yaoText}>老阴</Text>
             </View>
           </View>
-
         </View>
+      </ScrollView>
       )
   }
 }

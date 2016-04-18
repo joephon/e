@@ -88,7 +88,7 @@ export default class Home extends Component {
               onChangeText={this.handleFeedbackChange.bind(this)}/>
           </View>
           <TouchableOpacity style={styles.submit} onPress={this.handleSubmit.bind(this)}>
-            <Text style={styles.submitText}>提交</Text>
+            <Text style={styles.submitText}>{settings.tips.CN.submit}</Text>
           </TouchableOpacity>
         </ScrollView>
       </View>

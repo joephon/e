@@ -10,6 +10,7 @@ import React, {
   View
 } from 'react-native';
 
+import Scene from './views/Scene'
 import Home from './views/Home'
 import DrawerView from './views/DrawerView'
 import Gua from './views/Gua'
@@ -22,6 +23,7 @@ export default class App extends Component {
     super(props)
     this.state = {
       carryData: '',
+      showScene: true,
     }
   }
 
@@ -33,6 +35,15 @@ export default class App extends Component {
     BackAndroid.removeEventListener('hardwareBackPress', this.backPress.bind(this))
   }
 
+  componentDidMount() {
+    this.hideScene()
+  }
+
+  hideScene() {
+    setTimeout(() => {
+      this.setState({showScene: false})
+    },4000)
+  }
 
   backPress() {
     const nav = this.refs.navigator
@@ -87,6 +98,14 @@ export default class App extends Component {
 
   render() {
     let carryData = this.state.carryData
+    let showScene = this.state.showScene
+    if (showScene)
+      return( 
+          <View style={{flex: 1}}>
+            <StatusBar hidden={true}/>
+            <Scene />
+          </View>
+        )
     return (
       <DrawerLayoutAndroid
         ref='drawer'
@@ -102,4 +121,10 @@ export default class App extends Component {
     );
   }
 }
+
+
+
+
+
+
 
