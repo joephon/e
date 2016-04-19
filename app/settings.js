@@ -1,5 +1,5 @@
  const avatarBG = require('../images/avatarBG.png')
- const e = require('../images/e.png')
+ const e = require('../images/yie.png')
  const categories = require('../images/categories.png')
  const gua = require('../images/gua.png')
  const bu = require('../images/bu.png')

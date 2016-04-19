@@ -5,6 +5,7 @@ export default [
    hint: '乾为天 乾上乾下',
    img: require('../images/gua/1.png'),
    gua: '《乾》：元亨利贞。',
+   yaoArr: [9,9,9,9,9,9],
    yaos: [
       '初九：潜龙，勿用。', 
       '九二：见龙在田，利见大人。', 
@@ -21,6 +22,7 @@ export default [
    hint: '坤为地 坤上坤下',
    img: require('../images/gua/2.png'),
    gua: '《坤》：元亨。利牝马之贞。君子有攸往，先迷，后得主，利。西南得朋，东北丧朋。安贞吉。',
+   yaoArr: [6,6,6,6,6,6],
    yaos: [
       '初六：履霜，坚冰至。', 
       '六二，直、方、大，不习，无不利。', 
@@ -37,6 +39,7 @@ export default [
    hint: '水雷屯 坎上震下',
    img: require('../images/gua/3.png'),
    gua: '《屯》：元亨，利贞。勿用有攸往。利建侯。',
+   yaoArr: [9,6,6,6,9,6],
    yaos: [
       '初九，磐桓，利居贞。利建侯。', 
       '六二，屯如邅如，乘马班如。匪寇，婚媾。女子贞不字，十年乃字。', 
@@ -52,6 +55,7 @@ export default [
    hint: '山水蒙 艮上坎下',
    img: require('../images/gua/4.png'),
    gua: '《蒙》：亨。匪我求童蒙，童蒙求我。初筮告，再三渎，渎则不告。利贞。',
+   yaoArr: [6,9,6,6,6,9],
    yaos: [
       '初六，发蒙，利用刑人，用说桎梏，以往吝。', 
       '九二，包蒙，吉。纳妇，吉。子克家。', 
@@ -67,6 +71,7 @@ export default [
    hint: '水天需 坎上乾下',
    img: require('../images/gua/5.png'),
    gua: '《需》：有孚，光亨。贞吉，利涉大川。',
+   yaoArr: [9,9,9,6,9,6],
    yaos: [
      '初九，需于郊，利用恒，无咎。', 
      '九二，需于沙，小有言，终吉。', 
@@ -82,6 +87,7 @@ export default [
    hint: '天水讼 乾上坎下',
    img: require('../images/gua/6.png'),
    gua: '《讼》：有孚窒惕，中吉，终凶。利见大人。不利涉大川。',
+   yaoArr: [6,9,6,9,9,9],
    yaos: [
       '初六，不永所事，小有言，终吉。',
       '九二，不克讼，归而逋。其邑人三百户，无眚。',
@@ -97,6 +103,7 @@ export default [
    hint: '地水师 坤上坎下',
    img: require('../images/gua/7.png'),
    gua: '《师》：贞丈人吉，无咎。',
+   yaoArr: [6,9,6,6,6,6],
    yaos: [
     '初六，师出以律，否臧凶。',
     '九二，在师中吉，无咎，王三锡命。',
@@ -112,6 +119,7 @@ export default [
    hint: '水地比 坎上下坤',
    img: require('../images/gua/8.png'),
    gua: '《比》：吉。原筮，元，永贞，无咎。不宁方来，后夫凶。',
+   yaoArr: [6,6,6,6,9,6],
    yaos: [
     '初六，有孚比之，无咎。有孚盈缶，终来有它，吉。',
     '六二，比之自内，贞吉。',
@@ -127,6 +135,7 @@ export default [
    hint: '风天小畜 巽上乾下',
    img: require('../images/gua/9.png'),
    gua: '《小畜》：亨。密云不雨。自我西郊。',
+   yaoArr: [9,9,9,6,9,9],
    yaos: [
     '初九，「复自道，何其咎？吉。',
     '九二，牵复，吉。',
@@ -142,6 +151,7 @@ export default [
    hint: '天泽履 乾上兑下',
    img: require('../images/gua/10.png'),
    gua: '《履》：履虎尾，不咥人。亨。',
+   yaoArr: [9,9,6,9,9,9],
    yaos: [
     '初九，素履往，无咎。',
     '九二，履道坦坦，幽人贞吉。',
@@ -157,6 +167,7 @@ export default [
    hint: '天地泰 坤上乾下',
    img: require('../images/gua/11.png'),
    gua: '《泰》：小往大来，吉，亨。',
+   yaoArr: [9,9,9,6,6,6],
    yaos: [
     '初九，拔茅茹以其汇。征吉。',
     '九二，包荒，用冯河，不遐遗。朋亡，得尚于中行。',
@@ -172,6 +183,7 @@ export default [
    hint: '地天否 乾上坤下',
    img: require('../images/gua/12.png'),
    gua: '《否》：否之匪人，不利君子贞，大往小来。',
+   yaoArr: [6,6,6,9,9,9],
    yaos: [
     '初六，拔茅茹以其汇。贞吉，亨。',
     '六二，包承，小人吉，大人否。亨。',
@@ -187,6 +199,7 @@ export default [
    hint: '天火同人 乾上离下',
    img: require('../images/gua/13.png'),
    gua: '《同人》：同人于野，亨。利涉大川。利君子贞。',
+   yaoArr: [9,6,9,9,9,9],
    yaos: [
     '初九，同人于门，无咎。',
     '六二，同人于宗，吝。',
@@ -202,6 +215,7 @@ export default [
    hint: '火天大有 离上乾下',
    img: require('../images/gua/14.png'),
    gua: '《大有》：元亨。',
+   yaoArr: [9,9,9,9,6,9],
    yaos: [
     '初九，无交害匪咎。艰则无咎。',
     '九二，大车以载，有攸往，无咎。',
@@ -217,6 +231,7 @@ export default [
    hint: '地山谦 坤上艮下',
    img: require('../images/gua/15.png'),
    gua: '《谦》：亨。君子有终。',
+   yaoArr: [6,6,9,6,6,6],
    yaos: [
     '初六，谦谦君子，用涉大川，吉。',
     '六二，鸣谦，贞吉。',
@@ -232,6 +247,7 @@ export default [
    hint: '雷地豫 震上坤下',
    img: require('../images/gua/16.png'),
    gua: '《豫》：利建侯行师。',
+   yaoArr: [6,6,6,9,6,6],
    yaos: [
     '初六，鸣豫，凶。',
     '六二，介于石，不终日，贞吉。',
@@ -247,6 +263,7 @@ export default [
    hint: '泽雷随 兑上震下',
    img: require('../images/gua/17.png'),
    gua: '《随》：元亨，利贞，无咎。',
+   yaoArr: [9,6,6,9,9,6],
    yaos: [
     '初九，官有渝，贞吉，出门交有功。',
     '六二，系小子，失丈夫。',
@@ -262,6 +279,7 @@ export default [
    hint: '山风蛊 艮上巽下',
    img: require('../images/gua/18.png'),
    gua: '《蛊》：元亨。利涉大川，先甲三日，后甲三日。',
+   yaoArr: [6,9,9,6,6,9],
    yaos: [
     '初六，干父之蛊，有子，考无咎。厉，终吉。',
     '九二，干母之蛊，不可贞。',
@@ -277,6 +295,7 @@ export default [
    hint: '地泽临 坤上兑下',
    img: require('../images/gua/19.png'),
    gua: '《临》：元亨，利贞。至于八月有凶。',
+   yaoArr: [9,9,6,6,6,6],
    yaos: [
     '初九，咸临，贞吉。',
     '九二，咸临，吉，无不利。',
@@ -292,6 +311,7 @@ export default [
    hint: '风地观 巽上坤下',
    img: require('../images/gua/20.png'),
    gua: '《观》：盥而不荐。有孚顒若。',
+   yaoArr: [6,6,6,6,9,9],
    yaos: [
     '初六，童观，小人无咎，君子吝。',
     '六二，窥观，利女贞。',
@@ -307,6 +327,7 @@ export default [
    hint: '火雷噬嗑 离上震下',
    img: require('../images/gua/21.png'),
    gua: '《噬嗑》：亨。利用狱。',
+   yaoArr: [9,6,6,9,6,9],
    yaos: [
     '初九，屦校灭趾，无咎。',
     '六二，噬肤灭鼻，无咎。',
@@ -322,6 +343,7 @@ export default [
    hint: '山火贲 艮上离下',
    img: require('../images/gua/22.png'),
    gua: '《贲》：亨。小利有攸往。',
+   yaoArr: [9,6,9,6,6,9],
    yaos: [
     '初九，贲其趾，舍车而徒。',
     '六二，贲其须。',
@@ -337,6 +359,7 @@ export default [
    hint: '山地剥 艮上坤下',
    img: require('../images/gua/23.png'),
    gua: '《剥》：不利有攸往。',
+   yaoArr: [6,6,6,6,6,9],
    yaos: [
     '初六：剥床以足，蔑贞凶。',
     '六二：剥床以辨，蔑贞凶。',
@@ -352,6 +375,7 @@ export default [
    hint: '地雷复 坤上震下',
    img: require('../images/gua/24.png'),
    gua: '《复》：亨。出入无疾。朋来无咎。反覆其道，七日来复，利有攸往。',
+   yaoArr: [9,6,6,6,6,6],
    yaos: [
     '初九，不远复，无祗悔，元吉。',
     '六二，休复，吉。',
@@ -367,6 +391,7 @@ export default [
    hint: '天雷无妄 乾上震下',
    img: require('../images/gua/25.png'),
    gua: '《无妄》：元亨，利贞。其匪正有眚，不利有攸往。',
+   yaoArr: [9,6,6,9,9,9],
    yaos: [
     '初九，无妄往，吉。',
     '六二，不耕获，不菑畲，则利用攸往。',
@@ -382,6 +407,7 @@ export default [
    hint: '山天大畜 艮上乾下',
    img: require('../images/gua/26.png'),
    gua: '《大畜》：利贞。不家食吉。利涉大川。',
+   yaoArr: [9,9,9,6,6,9],
    yaos: [
     '初九，有厉，利已。',
     '九二，舆说輹。',
@@ -397,6 +423,7 @@ export default [
    hint: '山雷颐 艮上震下',
    img: require('../images/gua/27.png'),
    gua: '《颐》：贞吉。观颐，自求口实。',
+   yaoArr: [9,6,6,6,6,9],
    yaos: [
     '初九，舍尔灵龟，观我朵颐，凶。',
     '六二，颠颐拂经于丘颐，征凶。',
@@ -412,6 +439,7 @@ export default [
    hint: '泽风大过 兑上巽下',
    img: require('../images/gua/28.png'),
    gua: '《大过》：栋挠，利有攸往，亨。',
+   yaoArr: [6,9,9,9,9,6],
    yaos: [
     '初六，藉用白茅，无咎。',
     '九二，枯杨生稊，老夫得其女妻，无不利。',
@@ -426,7 +454,8 @@ export default [
    tag: '第二十九卦',   
    hint: '坎为水 坎上坎下',
    img: require('../images/gua/29.png'),
-   gua: '《习坎》：有孚维心，亨。行有尚。',
+   gua: '《坎》：有孚维心，亨。行有尚。',
+   yaoArr: [6,9,6,6,9,6],
    yaos: [
     '初六，习坎，入于坎，窞，凶。',
     '九二，坎有险，求小得。',
@@ -442,6 +471,7 @@ export default [
    hint: '离为火 离上离下',
    img: require('../images/gua/30.png'),
    gua: '《离》：利贞。亨。畜牝牛吉。',
+   yaoArr: [9,6,9,9,6,9],
    yaos: [
     '初九，履错然，敬之无咎。',
     '六二，黄离，元吉。',
@@ -457,6 +487,7 @@ export default [
    hint: '泽山咸 兑上艮下',
    img: require('../images/gua/31.png'),
    gua: '《咸》：亨。利贞。取女吉。',
+   yaoArr: [6,6,9,9,9,6],
    yaos: [
     '初六，咸其拇。',
     '六二，咸其腓，凶。居吉。',
@@ -472,6 +503,7 @@ export default [
    hint: '雷风恒 震上巽下',
    img: require('../images/gua/32.png'),
    gua: '《恒》：亨。无咎。利贞。利有攸往。',
+   yaoArr: [6,9,9,9,6,6],
    yaos: [
     '初六，浚恒，贞凶，无攸利。',
     '九二，悔亡。',
@@ -487,6 +519,7 @@ export default [
    hint: '天山遯 乾上艮下',
    img: require('../images/gua/33.png'),
    gua: '《遯》：亨。小利贞。',
+   yaoArr: [6,6,9,9,9,9],
    yaos: [
     '初六，遯尾，厉，勿用有攸往。',
     '六二，执之用黄牛之革，莫之胜说。',
@@ -502,6 +535,7 @@ export default [
    hint: '雷天大壮 震上乾下',
    img: require('../images/gua/34.png'),
    gua: '《大壮》：利贞。',
+   yaoArr: [9,9,9,9,6,6],
    yaos: [
     '初九，壮于趾，征凶，有孚。',
     '九二，贞吉。',
@@ -517,6 +551,7 @@ export default [
    hint: '火地晋 离上坤下',
    img: require('../images/gua/35.png'),
    gua: '《晋》：康侯用锡马蕃庶，昼日三接。',
+   yaoArr: [6,6,6,9,6,9],
    yaos: [
     '初六，晋如摧如，贞吉。罔孚，裕无咎。',
     '六二，晋如，愁如，贞吉。受兹介福于，其王母。',
@@ -532,6 +567,7 @@ export default [
    hint: '地火明夷 坤上离下',
    img: require('../images/gua/36.png'),
    gua: '《明夷》：利艰贞。',
+   yaoArr: [9,6,9,6,6,6],
    yaos: [
     '初九：明夷于飞，垂其翼。君子于行，三日不食。有攸往， 主人有言。',
     '六二：明夷，夷于左股，用拯马壮。吉。',
@@ -547,6 +583,7 @@ export default [
    hint: '风火家人 巽上离下',
    img: require('../images/gua/37.png'),
    gua: '《家人》：利女贞。',
+   yaoArr: [9,6,9,6,9,9],
    yaos: [
     '初九，闲有家，悔亡。',
     '六二，无攸遂，在中馈，贞吉。',
@@ -562,6 +599,7 @@ export default [
    hint: '火泽睽 离上兑下',
    img: require('../images/gua/38.png'),
    gua: '《睽》：小事吉。',
+   yaoArr: [9,9,6,9,6,9],
    yaos: [
     '初九，悔亡。丧马勿逐自复。见恶人无咎。',
     '九二，遇主于巷，无咎。',
@@ -577,6 +615,7 @@ export default [
    hint: '水山蹇 坎上艮下',
    img: require('../images/gua/39.png'),
    gua: '《蹇》：利西南，不利东北。利见大人。贞吉。',
+   yaoArr: [6,6,9,6,9,6],
    yaos: [
     '初六，往蹇来誉。',
     '六二，王臣蹇蹇，匪躬之故。',
@@ -592,6 +631,7 @@ export default [
    hint: '雷水解 震上坎下',
    img: require('../images/gua/40.png'),
    gua: '《解》：利西南。无所往，其来复吉。有攸往，夙吉。',
+   yaoArr: [6,9,6,9,6,6],
    yaos: [
     '初六，无咎。',
     '九二，田获三狐，得黄矢，贞吉。',
@@ -607,6 +647,7 @@ export default [
    hint: '山泽损 艮上兑下',
    img: require('../images/gua/41.png'),
    gua: '《损》：有孚，元吉，无咎。可贞，利有攸往。曷之用？二簋可用享。',
+   yaoArr: [9,9,6,6,6,9],
    yaos: [
     '初九，已事遄往，无咎。酌损之。',
     '九二，利贞。征凶，弗损，益之。',
@@ -622,6 +663,7 @@ export default [
    hint: '风雷益 巽上震下',
    img: require('../images/gua/42.png'),
    gua: '《益》：利有攸往。利涉大川。',
+   yaoArr: [9,6,6,6,9,9],
    yaos: [
     '初九，利用为大作，元吉，无咎。',
     '六二，或益之十朋之龟，弗克违。永贞吉。王用享于帝，吉。',
@@ -637,6 +679,7 @@ export default [
    hint: '泽天夬 兑上乾下',
    img: require('../images/gua/43.png'),
    gua: '《夬》：扬于王庭，孚号。有厉，告自邑。不利即戎，利有攸往。',
+   yaoArr: [9,9,9,9,9,6],
    yaos: [
     '初九，壮于前趾，往不胜，为咎。',
     '九二，惕号，莫夜有戎，勿恤。',
@@ -652,6 +695,7 @@ export default [
    hint: '天风姤 乾上巽下',
    img: require('../images/gua/44.png'),
    gua: '《姤》：女壮，勿用取女。',
+   yaoArr: [6,9,9,9,9,9],
    yaos: [
     '初六，系于金柅，贞吉。有攸往，见凶，羸豕孚蹢躅。',
     '九二，包有鱼，无咎，不利宾。',
@@ -667,6 +711,7 @@ export default [
    hint: '泽地萃 兑上坤下',
    img: require('../images/gua/45.png'),
    gua: '《萃》：亨，王假有庙。利见大人。亨，利贞，用大牲吉。利有攸往。',
+   yaoArr: [6,6,6,9,9,6],
    yaos: [
     '初六，有孚不终，乃乱乃萃，若号，一握为笑，勿恤，往无咎。',
     '六二，引吉，无咎，孚乃利用禴。',
@@ -682,6 +727,7 @@ export default [
    hint: '地风升 坤上巽下',
    img: require('../images/gua/46.png'),
    gua: '《升》：元亨。用见大人，勿恤。南征吉。',
+   yaoArr: [6,9,9,6,6,6],
    yaos: [
     '初六，允升，大吉。',
     '九二，孚乃利用禴，无咎。',
@@ -697,6 +743,7 @@ export default [
    hint: '泽水困 兑上坎下',
    img: require('../images/gua/47.png'),
    gua: '《困》：亨。贞大人吉，无咎。有言不信。',
+   yaoArr: [6,9,6,9,9,6],
    yaos: [
     '初六，臀困于株木，入于幽谷，三岁不觌。',
     '九二，困于酒食，朱绂方来。利用享祀。征凶，无咎。',
@@ -712,6 +759,7 @@ export default [
    hint: '水风井 坎上巽下',
    img: require('../images/gua/48.png'),
    gua: '《井》：改邑不改井，无丧无得。往来井井。汔至，亦未繘井，羸其瓶，凶。',
+   yaoArr: [6,9,9,6,9,6],
    yaos: [
     '初六，井泥不食。旧井无禽。',
     '九二，井谷射鲋，瓮敝漏。',
@@ -727,6 +775,7 @@ export default [
    hint: '泽火革 兑上离下',
    img: require('../images/gua/49.png'),
    gua: '《革》：已日乃孚。元亨。利贞，悔亡。',
+   yaoArr: [9,6,9,9,9,6],
    yaos: [
     '初九，巩用黄牛之革。',
     '六二，巳日乃革之，征吉，无咎。',
@@ -742,6 +791,7 @@ export default [
    hint: '火风鼎 离上巽下',
    img: require('../images/gua/50.png'),
    gua: '《鼎》：元吉，亨。',
+   yaoArr: [6,9,9,9,6,9],
    yaos: [
     '初六：鼎颠趾，利出否，得妾以其子，无咎。',
     '九二：鼎有实，我仇有疾，不我能即，吉。',
@@ -757,6 +807,7 @@ export default [
    hint: '震为雷 震上震下',
    img: require('../images/gua/51.png'),
    gua: '《震》：亨。震来虩虩，笑言哑哑，震惊百里，不丧匕鬯。',
+   yaoArr: [9,6,6,9,6,6],
    yaos: [
     '初九，震来虩虩，后笑言哑哑，吉。',
     '六二，震来厉，亿丧贝，跻于九陵，勿逐，七日得。',
@@ -772,6 +823,7 @@ export default [
    hint: '艮为山 艮上艮下',
    img: require('../images/gua/52.png'),
    gua: '《艮》：艮其背，不获其身，行其庭，不见其人，无咎。',
+   yaoArr: [6,6,9,6,6,9],
    yaos: [
     '初六，艮其趾，无咎。利永贞。',
     '六二，艮其腓，不拯其随，其心不快。',
@@ -787,6 +839,7 @@ export default [
    hint: '风山渐 巽上艮下',
    img: require('../images/gua/53.png'),
    gua: '《渐》：女归吉，利贞。',
+   yaoArr: [6,6,9,6,9,9],
    yaos: [
     '初六，鸿渐于干。小子厉，有言，无咎。',
     '六二，鸿渐于磐，饮食衎衎，吉。',
@@ -802,6 +855,7 @@ export default [
    hint: '雷泽归妹 震上兑下',
    img: require('../images/gua/54.png'),
    gua: '《归妹》：征凶，无攸利。',
+   yaoArr: [9,9,6,9,6,6],
    yaos: [
     '初九，归妹以娣。跛能履，征吉。',
     '九二，眇能视，利幽人之贞。',
@@ -817,6 +871,7 @@ export default [
    hint: '雷火丰 震上离下',
    img: require('../images/gua/55.png'),
    gua: '《丰》：亨，王假之。勿忧，宜日中。',
+   yaoArr: [9,6,9,9,6,6],
    yaos: [
     '初九，遇其配主，虽旬无咎，往有尚。',
     '六二，丰其蔀，日中见斗。往得疑疾，有孚发若，吉。',
@@ -832,6 +887,7 @@ export default [
    hint: '火山旅 离上艮下',
    img: require('../images/gua/56.png'),
    gua: '《旅》：小亨。旅贞吉。',
+   yaoArr: [6,6,9,9,6,9],
    yaos: [
     '初六，旅琐琐，斯其所取灾。',
     '六二，旅即次，怀其资，得童仆，贞。',
@@ -847,6 +903,7 @@ export default [
    hint: '巽为风 巽上巽下',
    img: require('../images/gua/57.png'),
    gua: '《巽》：小亨。利有攸往。利见大人。',
+   yaoArr: [6,9,9,6,9,9],
    yaos: [
     '初六，进退，利武人之贞。',
     '九二，巽在床下，用史巫纷若，吉，无咎。',
@@ -862,6 +919,7 @@ export default [
    hint: '兑为泽 兑上兑下',
    img: require('../images/gua/58.png'),
    gua: '《兑》：亨。利贞。',
+   yaoArr: [9,9,6,9,9,6],
    yaos: [
     '初九，和兑，吉。',
     '九二，孚兑，吉，悔亡。',
@@ -877,6 +935,7 @@ export default [
    hint: '风水涣 巽上坎下',
    img: require('../images/gua/59.png'),
    gua: '《涣》：亨。王假有庙。利涉大川，利贞。',
+   yaoArr: [6,9,6,6,9,9],
    yaos: [
     '初六，用拯马壮，吉。',
     '九二，涣奔其机，悔亡。',
@@ -892,6 +951,7 @@ export default [
    hint: '水泽节 坎上兑下',
    img: require('../images/gua/60.png'),
    gua: '《节》：亨。苦节，不可贞。',
+   yaoArr: [9,9,6,6,9,6],
    yaos: [
     '初九，不出户庭，无咎。',
     '九二，不出门庭，凶。',
@@ -907,6 +967,7 @@ export default [
    hint: '风泽中孚 巽上兑下',
    img: require('../images/gua/61.png'),
    gua: '《中孚》：豚鱼，吉。利涉大川，利贞。',
+   yaoArr: [9,9,6,6,9,9],
    yaos: [
     '初九，虞吉，有它不燕。',
     '九二，鸣鹤在阴，其子和之。我有好爵，吾与尔靡之。',
@@ -922,7 +983,9 @@ export default [
    hint: '雷山小过 震上艮下',
    img: require('../images/gua/62.png'),
    gua: '《小过》：亨。利贞。可小事，不可大事。飞鸟遗之音，不宜上，宜下，大吉。',
+   yaoArr: [6,6,9,9,6,6],
    yaos: [
+    '初六，飞鸟以凶。',
     '六二，过其祖，遇其妣。不及其君，遇其臣。无咎。',
     '九三，弗过防之，从或戕之，凶。',
     '九四，无咎。弗过遇之，往厉必戒，勿用永贞。',
@@ -936,9 +999,10 @@ export default [
    hint: '水火既济 坎上离下',
    img: require('../images/gua/63.png'),
    gua: '《既济》：亨小，利贞。初吉终乱。',
+   yaoArr: [9,6,9,6,9,6],
    yaos: [
     '初九，曳其轮，濡其尾，无咎。',
-    '六二，「妇丧其茀，勿逐，七日得。',
+    '六二，妇丧其茀，勿逐，七日得。',
     '九三，高宗伐鬼方，三年克之，小人勿用。',
     '六四，繻有衣袽，终日戒。',
     '九五，东邻杀牛，不如西邻之禴祭，实受其福。',
@@ -951,6 +1015,7 @@ export default [
    hint: '火水未济 离上坎下',
    img: require('../images/gua/64.png'),
    gua: '《未济》：亨。小狐汔济，濡其尾，无攸利。',
+   yaoArr: [6,9,6,9,6,9],
    yaos: [
     '初六，濡其尾，吝。',
     '九二，曳其轮，贞吉。',

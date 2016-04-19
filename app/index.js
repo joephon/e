@@ -23,7 +23,7 @@ export default class App extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      carryData: '',
+      carryData: [],
       showScene: true,
       oldVersion: false,
     }
@@ -71,9 +71,9 @@ export default class App extends Component {
     else if (route.name === 'gua') 
       return <Gua  navigator={navigator} back={this.back.bind(this)} nav={this.getNavigator.bind(this)}/>
     else if (route.name === 'guaDetails') 
-      return <GuaDetails  navigator={navigator} back={this.back.bind(this)} nav={this.getNavigator.bind(this)} carryData={this.state.carryData}/>
+      return <GuaDetails  navigator={navigator} back={this.back.bind(this)} nav={this.getNavigator.bind(this)} {...this.state}/>
     else if (route.name === 'bu') 
-      return <Bu navigator={navigator} back={this.back.bind(this)} nav={this.getNavigator.bind(this)}/>
+      return <Bu navigator={navigator} back={this.back.bind(this)} nav={this.getNavigator.bind(this)} />
     else
       return <Home  navigator={navigator} showDrawer={this.showDrawer.bind(this)} nav={this.getNavigator.bind(this)}/>
   }

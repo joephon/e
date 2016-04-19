@@ -44,6 +44,7 @@ export default {
   rightTextGua: {
     marginBottom: 5,
     fontSize: 17,
+    color: '#777',
   },
   headerLeft: {
     paddingRight: 20,

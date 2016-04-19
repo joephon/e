@@ -41,9 +41,10 @@ export default class Easy extends Component {
 
   begin() {
     let step = this.state.step
+    let result = this.state.result
     let allowPress = this.state.allowPress
-    if (step > 5)
-      return
+    if (step > 5) 
+      return this.matchResult(result)
     if (allowPress) {
       this.setState({allowPress: false})
       Vibration.vibrate()
@@ -102,26 +103,26 @@ export default class Easy extends Component {
     let varColor
     switch(true) {
       case figure < 5:
-      result.push(1)
+      result.push(7)
       resultYao.push('少阳')
       this.setState({result: result, resultYao: resultYao})
       varColor = true
       break
-      case figure > 5:
-      result.push(0)
+      case figure > 5 && figure < 10:
+      result.push(8)
       resultYao.push('少阴')
       this.setState({result: result, resultYao: resultYao})
       varColor = false
       break
       case figure == 5:
-      result.push(3)
-      resultYao.push('老阴')
+      result.push(9)
+      resultYao.push('老阳(变)')
       this.setState({result: result, resultYao: resultYao})
       varColor = false
       break
       case figure == 10:
-      result.push(2)
-      resultYao.push('老阳')
+      result.push(6)
+      resultYao.push('老阴(变)')
       this.setState({result: result, resultYao: resultYao})
       varColor = true
       break
@@ -136,10 +137,16 @@ export default class Easy extends Component {
   formatResult() {
     let result = this.state.result
     result.map((item, index) => {
-      if (item == 3)
-        result[index] = 0
-      else if (item == 2)
-        result[index] = 1
+      if (item == 9)
+        result[index] = 8
+      else if (item == 6)
+        result[index] = 7
+    })
+    result.map((item, index) => {
+      if (item == 7)
+        result[index] = 9
+      else if (item == 8)
+        result[index] = 6
     })
     this.setState({resultOut: result}, () => {
       this.matchResult(result)
@@ -147,12 +154,22 @@ export default class Easy extends Component {
   }
 
   matchResult(result) {
+    sources.map((item, index) => {
+      if (sources[index].yaoArr == result.toString())
+        this.goGua(sources[index])
+    })
+  }
+
+  goGua(carryData) {
     setTimeout(() => {
       Alert.alert(
-        '你占中了ooxx卦',
-        '用ooxx卦的ooxx爻来解签',
+        `你占到了${carryData.tag} 《${carryData.tip}》`,
+        `${carryData.hint}`,
         [
-          {text: '现在去看', onPress: () => this.props.nav(settings.routes.guaDetails, sources[0])}
+          {text: '现在去看', onPress: () => {
+              this.props.nav(settings.routes.guaDetails, carryData)
+            }
+          }
         ]
       )
     }, 500)
@@ -178,7 +195,7 @@ export default class Easy extends Component {
       <ScrollView>
         <View style={styles.container}>
           <TouchableOpacity style={[styles.buBox, {transform:[{rotate: `${deg}deg`},]}]} onPress={this.begin.bind(this)}>
-            <Image style={styles.bu} source={settings.icons.bu} />
+            <Image style={styles.bu} source={settings.icons.e} />
           </TouchableOpacity>
           <View style={styles.yao}>
             <View style={styles.yaoLeft}>

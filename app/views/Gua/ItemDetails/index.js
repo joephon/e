@@ -11,6 +11,12 @@ import styles from './styles.js'
 import settings from '../../../settings.js'
 
 export default class ItemDetails extends Component {
+  // constructor(props) {
+  //   super(props)
+  //   this.state = {
+  //     setYao: this.props.
+  //   }
+  // }
 
   render() {
     let carryData = this.props.carryData
@@ -42,7 +48,7 @@ export default class ItemDetails extends Component {
                 {
                   carryData.yaos.map((item, index) => {
                     return(
-                        <Text key={index} style={styles.rightTextGua}>{item}</Text>
+                        <Text key={index} style={[styles.rightTextGua]}>{item}</Text>
                       )
                   })
                 }
