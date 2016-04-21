@@ -10,6 +10,7 @@ import React,{
   Image,
   TouchableOpacity,
   TouchableNativeFeedback,
+  Alert,
  } from 'react-native'
 
 import styles from './styles.js'
@@ -37,7 +38,16 @@ export default class Home extends Component {
   }
 
   handleSubmit() {
-
+    let url = settings.url.feedback
+    let feedback = {feedback: this.state.feedback}
+    let request = this.props.request('post', feedback)
+    fetch(url, request)
+    .then((res) => {
+      if (res.ok)
+        Alert.alert(settings.tips.CN.success)
+      else
+        Alert.alert(JSON.stringify(res))
+    })
   }
 
   render() {

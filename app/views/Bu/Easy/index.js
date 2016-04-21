@@ -104,25 +104,25 @@ export default class Easy extends Component {
     switch(true) {
       case figure < 5:
       result.push(7)
-      resultYao.push('少阳')
+      resultYao.push(settings.tags.CN.newYang)
       this.setState({result: result, resultYao: resultYao})
       varColor = true
       break
       case figure > 5 && figure < 10:
       result.push(8)
-      resultYao.push('少阴')
+      resultYao.push(settings.tags.CN.newYin)
       this.setState({result: result, resultYao: resultYao})
       varColor = false
       break
       case figure == 5:
       result.push(9)
-      resultYao.push('老阳(变)')
+      resultYao.push(settings.tags.CN.oldYang)
       this.setState({result: result, resultYao: resultYao})
       varColor = false
       break
       case figure == 10:
       result.push(6)
-      resultYao.push('老阴(变)')
+      resultYao.push(settings.tags.CN.oldYin)
       this.setState({result: result, resultYao: resultYao})
       varColor = true
       break
@@ -163,10 +163,10 @@ export default class Easy extends Component {
   goGua(carryData) {
     setTimeout(() => {
       Alert.alert(
-        `你占到了${carryData.tag} 《${carryData.tip}》`,
+        `${settings.tags.CN.youGet}${carryData.tag} 《${carryData.tip}》`,
         `${carryData.hint}`,
         [
-          {text: '现在去看', onPress: () => {
+          {text: settings.tags.CN.view, onPress: () => {
               this.props.nav(settings.routes.guaDetails, carryData)
             }
           }

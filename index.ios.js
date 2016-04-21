@@ -3,6 +3,10 @@
  * https://github.com/facebook/react-native
  */
 
+// import myApp from './myKeys.js'
+// import AV from 'avoscloud-sdk' 
+// AV.initialize(myApp.AppId, myApp.AppKey);
+
 import React, {
   AppRegistry,
   Component,

@@ -8,6 +8,9 @@
  const back = require('../images/back.png')
 
 export default {
+  url: {
+    feedback: 'https://api.leancloud.cn/1.1/classes/Feedback',
+  },
   routes: {
     home: 'home',
     gua: 'gua',
@@ -34,6 +37,7 @@ export default {
       user: '个人中心',
       settings: '设置',
       submit: '提交',
+      success: '提交成功',
       about: '所谓议易，便是大家都来议论《周易》，研读六十四卦，占个卜，点个爻，易就该耍着才好玩。很多人天然觉得《周易》高深莫测，隐涩难懂，实则不然！生活中处处是易：“九五之尊”、“一言九鼎”、“三阳开泰”、“否极泰来”等等诸多被用烂了的词语，都源于易。既然易如此贴近生活，为何不议(易)？',
     },
     EN: {
@@ -50,6 +54,8 @@ export default {
       gua: '品易',
       bu: '占卜',
       feedback: '给我反馈',
+      view: '现在去看',
+      youGet: '你占到',
       about: '议易是什么',
       guaci: '卦辞',
       yaoci: '爻辞',
@@ -61,6 +67,10 @@ export default {
       yaoFour: '四爻',
       yaoFive: '五爻',
       yaoSix: '上爻',
+      newYin: '少阴',
+      newYang: '少阳',
+      oldYin: '老阴(变)',
+      oldYang: '老阳(变)',
     },
     EN: {
 

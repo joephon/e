@@ -17,7 +17,9 @@ import DrawerView from './views/DrawerView'
 import Gua from './views/Gua'
 import GuaDetails from './views/Gua/ItemDetails'
 import Bu from './views/Bu'
+import request from './request.js'
 
+import myApp from '../myKeys.js'
 export default class App extends Component {
 
   constructor(props) {
@@ -26,6 +28,11 @@ export default class App extends Component {
       carryData: [],
       showScene: true,
       oldVersion: false,
+      request: request,
+      myApp: myApp,
+      nav: this.getNavigator.bind(this),
+      showDrawer: this.showDrawer.bind(this),
+      back: this.back.bind(this),
     }
   }
 
@@ -65,17 +72,17 @@ export default class App extends Component {
 
   renderScene(route, navigator, carryData) {
     if (route.name === 'home') 
-      return <Home  navigator={navigator} showDrawer={this.showDrawer.bind(this)} nav={this.getNavigator.bind(this)}/>
+      return <Home  navigator={navigator} {...this.state}/>
     else if (route.name === 'drawerView') 
       return <DrawerView  navigator={navigator} />
     else if (route.name === 'gua') 
-      return <Gua  navigator={navigator} back={this.back.bind(this)} nav={this.getNavigator.bind(this)}/>
+      return <Gua  navigator={navigator} {...this.state}/>
     else if (route.name === 'guaDetails') 
-      return <GuaDetails  navigator={navigator} back={this.back.bind(this)} nav={this.getNavigator.bind(this)} {...this.state}/>
+      return <GuaDetails  navigator={navigator}  {...this.state}/>
     else if (route.name === 'bu') 
-      return <Bu navigator={navigator} back={this.back.bind(this)} nav={this.getNavigator.bind(this)} />
+      return <Bu navigator={navigator} {...this.state}/>
     else
-      return <Home  navigator={navigator} showDrawer={this.showDrawer.bind(this)} nav={this.getNavigator.bind(this)}/>
+      return <Home  navigator={navigator} {...this.state}/>
   }
 
   renderDrawerView() {
