@@ -9,12 +9,18 @@ import styles from './styles.js'
 import SignIn from './SignIn'
 import SignUp from './SignUp'
 import Forgot from './Forgot'
+import valid from 'validator'
+import request from '../../request.js'
 
 export default class extends Component {
   constructor(props) {
     super(props)
     this.state = {
       nav: this.getNavigator.bind(this),
+      valid: valid,
+      request: request,
+      hideSign: this.props.hideSign,
+      storage: this.props.storage,
     }
   }
 

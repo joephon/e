@@ -166,9 +166,9 @@ export default class Easy extends Component {
         `${settings.tags.CN.youGet}${carryData.tag} 《${carryData.tip}》`,
         `${carryData.hint}`,
         [
-          {text: settings.tags.CN.view, onPress: () => {
-              this.props.nav(settings.routes.guaDetails, carryData)
-            }
+          {
+            text: settings.tags.CN.view, 
+            onPress: () => this.props.nav(settings.routes.guaDetails, carryData)
           }
         ]
       )

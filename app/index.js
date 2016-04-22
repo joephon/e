@@ -20,6 +20,7 @@ import GuaDetails from './views/Gua/ItemDetails'
 import Bu from './views/Bu'
 import request from './request.js'
 import myApp from '../myKeys.js'
+import storage from './storage.js'
 export default class App extends Component {
 
   constructor(props) {
@@ -30,6 +31,7 @@ export default class App extends Component {
       showScene: true,
       oldVersion: false,
       request: request,
+      storage: storage,
       myApp: myApp,
       nav: this.getNavigator.bind(this),
       showDrawer: this.showDrawer.bind(this),
@@ -53,7 +55,11 @@ export default class App extends Component {
     this.checkPlatform()
     setTimeout(() => {
       this.setState({showScene: false})
-    },4000)
+    },3000)
+  }
+
+  hideSign() {
+    this.setState({isLogin: true})
   }
 
   checkPlatform() {
@@ -130,7 +136,7 @@ export default class App extends Component {
       return(
           <View style={{flex: 1}}>
             <StatusBar hidden={oldVersion ? false : true}/>
-            <Sign />
+            <Sign hideSign={this.hideSign.bind(this)} storage={storage}/>
           </View>
         )
     return (

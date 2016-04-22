@@ -9,6 +9,8 @@
     "avoscloud-sdk": "^1.0.0-rc8",
     "leancloud-realtime": "^2.4.0",
     "react": "^0.14.8",
-    "react-native": "^0.23.1"
+    "react-native": "^0.23.1",
+    "react-native-storage": "0.0.16",
+    "validator": "^5.2.0"
   }
 }

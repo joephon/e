@@ -9,7 +9,9 @@
 
 export default {
   url: {
-    feedback: 'https://api.leancloud.cn/1.1/classes/Feedback',
+    feedback: 'https://api.leancloud.cn/1.1/feedback',
+    signUp: 'https://api.leancloud.cn/1.1/users',
+    signIn: 'https://api.leancloud.cn/1.1/login',
   },
   routes: {
     home: 'home',
@@ -32,6 +34,15 @@ export default {
     settings: settings,
     back: back,
   },
+  valid: {
+    CN: {
+      invalidUsername: '用户名必须2～8位',
+      invalidEmail: '邮箱格式不正确',
+      shortPassword: '密码长度必须6位以上',
+      longPassword: '密码长度必须20位以内',
+      diffPassword: '两次密码不一致',
+    }
+  },
   tips: {
     CN: {
       home: '议易',
@@ -49,6 +60,7 @@ export default {
       send: '发送',
       failed: '提交失败',
       thanks: '反馈已收到 ：）',
+      welcome: '欢迎加入《议易》',
       about: '所谓议易，便是大家都来议论《周易》，研读六十四卦，占个卜，点个爻，易就该耍着才好玩。很多人天然觉得《周易》高深莫测，隐涩难懂，实则不然！生活中处处是易：“九五之尊”、“一言九鼎”、“三阳开泰”、“否极泰来”等等诸多被用烂了的词语，都源于易。既然易如此贴近生活，为何不议(易)？',
     },
     EN: {
@@ -93,10 +105,10 @@ export default {
         feedback: 'Hi 我是Joephon，这款应用的开发及维护者，如果你有什么关于功能或者体验的建议，不妨在此留言，我会跟进反馈的 ：）' ,
       },
       sign: {
-        name: '姓名(至少两位)',
+        username: '姓名(2～8位)',
         email: '邮箱',
         phone: '手机',
-        password: '密码(至少六位)',
+        password: '密码(6～20位)',
         confirmPassword: '重复密码',
       },
     },
