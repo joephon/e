@@ -12,13 +12,13 @@ import React, {
 } from 'react-native';
 
 import Scene from './views/Scene'
+import Sign from './views/Sign'
 import Home from './views/Home'
 import DrawerView from './views/DrawerView'
 import Gua from './views/Gua'
 import GuaDetails from './views/Gua/ItemDetails'
 import Bu from './views/Bu'
 import request from './request.js'
-
 import myApp from '../myKeys.js'
 export default class App extends Component {
 
@@ -26,6 +26,7 @@ export default class App extends Component {
     super(props)
     this.state = {
       carryData: [],
+      isLogin: false,
       showScene: true,
       oldVersion: false,
       request: request,
@@ -62,6 +63,8 @@ export default class App extends Component {
 
   backPress() {
     const nav = this.refs.navigator
+    if (!nav)
+      return false
     const routers = nav.getCurrentRoutes()
     if (routers.length > 1) {
       nav.pop();
@@ -115,11 +118,19 @@ export default class App extends Component {
     let carryData = this.state.carryData
     let showScene = this.state.showScene
     let oldVersion = this.state.oldVersion
+    let isLogin = this.state.isLogin
     if (showScene)
       return( 
           <View style={{flex: 1}}>
             <StatusBar hidden={oldVersion ? false : true}/>
             <Scene />
+          </View>
+        )
+    if (!isLogin)
+      return(
+          <View style={{flex: 1}}>
+            <StatusBar hidden={oldVersion ? false : true}/>
+            <Sign />
           </View>
         )
     return (

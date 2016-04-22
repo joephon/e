@@ -43,10 +43,12 @@ export default class Home extends Component {
     let request = this.props.request('post', feedback)
     fetch(url, request)
     .then((res) => {
-      if (res.ok)
-        Alert.alert(settings.tips.CN.success)
+      if (res.ok) {
+        Alert.alert(settings.tips.CN.success, settings.tips.CN.thanks)
+        this.setState({feedback: ''})
+      }
       else
-        Alert.alert(JSON.stringify(res))
+        Alert.alert(settings.tips.CN.failed, JSON.parse(res._bodyInit).error)
     })
   }
 

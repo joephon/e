@@ -18,6 +18,9 @@ export default {
     bu: 'bu',
     user: 'user',
     settings: 'settings',
+    signUp: 'signUp',
+    signIn: 'signIn',
+    forgot: 'forgot',
   },
   icons: {
     avatarBG: avatarBG,
@@ -37,7 +40,15 @@ export default {
       user: '个人中心',
       settings: '设置',
       submit: '提交',
+      signIn: '登录',
+      signUp: '注册',
+      toSignIn: '前往登录',
+      toSignUp: '前往注册',
+      forgot: '忘记密码',
       success: '提交成功',
+      send: '发送',
+      failed: '提交失败',
+      thanks: '反馈已收到 ：）',
       about: '所谓议易，便是大家都来议论《周易》，研读六十四卦，占个卜，点个爻，易就该耍着才好玩。很多人天然觉得《周易》高深莫测，隐涩难懂，实则不然！生活中处处是易：“九五之尊”、“一言九鼎”、“三阳开泰”、“否极泰来”等等诸多被用烂了的词语，都源于易。既然易如此贴近生活，为何不议(易)？',
     },
     EN: {
@@ -80,6 +91,13 @@ export default {
     CN: {
       home: {
         feedback: 'Hi 我是Joephon，这款应用的开发及维护者，如果你有什么关于功能或者体验的建议，不妨在此留言，我会跟进反馈的 ：）' ,
+      },
+      sign: {
+        name: '姓名(至少两位)',
+        email: '邮箱',
+        phone: '手机',
+        password: '密码(至少六位)',
+        confirmPassword: '重复密码',
       },
     },
     EN: {
