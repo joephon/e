@@ -2,6 +2,7 @@ export default {
   container: {
     flex: 1,
     justifyContent: 'center',
+    paddingVertical: 50,
     backgroundColor: '#f5f5f5',
   },
   img: {
@@ -33,15 +34,15 @@ export default {
   submit: {
     alignSelf: 'center',
     width: 300,
-    height: 60,
+    height: 50,
     marginTop: 10,
     paddingLeft: 8,
-    paddingVertical: 14,
+    paddingVertical: 12,
     borderRadius: 5,
     backgroundColor: '#9d55b8',
   },
   submitText: {
-    fontSize: 22,
+    fontSize: 18,
     textAlign: 'center',
     color: '#fff',
   },

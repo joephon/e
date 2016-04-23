@@ -12,6 +12,7 @@ export default {
     feedback: 'https://api.leancloud.cn/1.1/feedback',
     signUp: 'https://api.leancloud.cn/1.1/users',
     signIn: 'https://api.leancloud.cn/1.1/login',
+    reset: 'https://api.leancloud.cn/1.1/requestPasswordReset',
   },
   routes: {
     home: 'home',
@@ -41,6 +42,7 @@ export default {
       shortPassword: '密码长度必须6位以上',
       longPassword: '密码长度必须20位以内',
       diffPassword: '两次密码不一致',
+      shouldFill: '请键入用户名和密码',
     }
   },
   tips: {
@@ -57,6 +59,7 @@ export default {
       toSignUp: '前往注册',
       forgot: '忘记密码',
       success: '提交成功',
+      reset: '邮件发送重置邮件，请查收',
       send: '发送',
       failed: '提交失败',
       thanks: '反馈已收到 ：）',

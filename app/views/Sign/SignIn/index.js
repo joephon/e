@@ -6,6 +6,7 @@ import React, {
   TextInput,
   Image,
   Alert,
+  ToastAndroid,
   TouchableOpacity,
 } from 'react-native'
 
@@ -37,11 +38,19 @@ export default class extends Component {
     this.props.nav(settings.routes.forgot)
   }
 
-  signIn() {
-    let request = this.props.request
-    let url = settings.url.signIn
+  handleSubmit() {
     let username = this.state.username
     let password = this.state.password
+    if (!username || !password) {
+      ToastAndroid.show(settings.valid.CN.shouldFill, ToastAndroid.SHORT)
+      return
+    }
+    this.signIn(username, password)
+  }
+
+  signIn(username, password) {
+    let request = this.props.request
+    let url = settings.url.signIn
     let body = {username: username, password: password}
     let storage = this.props.storage
     fetch(url, request('post',body))
@@ -89,7 +98,7 @@ export default class extends Component {
             <Text style={styles.lableText}>{settings.tips.CN.toSignUp}</Text>
           </TouchableOpacity>
         </View>
-        <TouchableOpacity onPress={this.signIn.bind(this)}>
+        <TouchableOpacity onPress={this.handleSubmit.bind(this)}>
           <View style={styles.submit}>
             <Text style={styles.submitText}>{settings.tips.CN.signIn}</Text>
           </View>

@@ -5,6 +5,8 @@ import React, {
   Text,
   TextInput,
   Image,
+  ToastAndroid,
+  Alert,
   TouchableOpacity,
 } from 'react-native'
 
@@ -31,7 +33,33 @@ export default class extends Component {
     this.props.nav(settings.routes.signIn)
   }
 
+  handleSubmit() {
+    let email = this.state.email
+    let valid = this.props.valid
+    if (!valid.isEmail(email)) {
+      ToastAndroid.show(settings.valid.CN.invalidEmail, ToastAndroid.SHORT)
+      return
+    }
+    this.forgot(email)
+  }
+
+  forgot(email) {
+    let url = settings.url.reset
+    let request = this.props.request
+    let body = {email: email}
+    fetch(url, request('post', body))
+    .then(res => {
+      if (res.ok) {
+        Alert.alert(settings.tips.CN.success, settings.tips.CN.reset)
+        this.setState({email: ''})
+      }
+      else
+        Alert.alert(settings.tips.CN.failed, JSON.parse(res._bodyInit).error)
+    })
+  }
+
   render() {
+    let email = this.state.email
     return (
       <ScrollView contentContainerStyle={styles.container}>
         <Image source={settings.icons.e} style={styles.img}/>
@@ -39,6 +67,7 @@ export default class extends Component {
           <TextInput
             underlineColorAndroid='rgba(0,0,0,0)'
             placeholderTextColor='#ccc'
+            value={email}
             onChangeText={this.handleEmail.bind(this)} 
             placeholder={settings.placeholders.CN.sign.email}/>
         </View>
@@ -50,7 +79,7 @@ export default class extends Component {
             <Text style={styles.lableText}>{settings.tips.CN.toSignUp}</Text>
           </TouchableOpacity>
         </View>
-        <TouchableOpacity>
+        <TouchableOpacity onPress={this.handleSubmit.bind(this)}>
           <View style={styles.submit}>
             <Text style={styles.submitText}>{settings.tips.CN.send}</Text>
           </View>

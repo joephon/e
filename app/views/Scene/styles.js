@@ -26,7 +26,7 @@ export default {
     // backgroundColor: '#fff'
   },
   text: {
-    fontSize: 20,
+    fontSize: 18,
     textAlign: 'center',
     color: '#ccc',
   },
