@@ -10,7 +10,9 @@ import React,{
   Image,
   TouchableOpacity,
   TouchableNativeFeedback,
+  AsyncStorage,
   Alert,
+  ToastAndroid,
  } from 'react-native'
 
 import styles from './styles.js'
@@ -21,34 +23,43 @@ export default class Home extends Component {
     super(props)
     this.state = {
       feedback: '',
+      userToken: '',
     }
   }
-
-  // handleRotate() {
-  //   let deg = this.state.deg
-  //   for (let i = 1; i < 19; i ++) {
-  //     setTimeout(() => {
-  //       this.setState({deg: deg + i * 20})
-  //     },i * 40)
-  //   }
-  // }
 
   handleFeedbackChange(value) {
     this.setState({feedback: value})  
   }
 
   handleSubmit() {
+    let feedback = this.state.feedback
+    if (!feedback) {
+      ToastAndroid.show(settings.valid.CN.invalidFeedback, ToastAndroid.SHORT)
+      return
+    }
+    this.send(feedback)
+  }
+
+  send(feedback) {
     let url = settings.url.feedback
-    let feedback = {feedback: this.state.feedback}
-    let request = this.props.request('post', feedback)
+    let currentUser = this.props.currentUser
+    let body = {
+      content: JSON.stringify({
+        content: feedback,
+        title: settings.tags.CN.feedback,
+        currentUser: currentUser,
+      })
+    }
+    let request = this.props.request('post', body)
     fetch(url, request)
-    .then((res) => {
-      if (res.ok) {
+    .then(res => res.json())
+    .then((json) => {
+      if (!json.code) {
         Alert.alert(settings.tips.CN.success, settings.tips.CN.thanks)
         this.setState({feedback: ''})
       }
       else
-        Alert.alert(settings.tips.CN.failed, JSON.parse(res._bodyInit).error)
+        Alert.alert(settings.tips.CN.failed, json.error)
     })
   }
 

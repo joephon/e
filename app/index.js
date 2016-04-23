@@ -8,7 +8,9 @@ import React, {
   BackAndroid,
   Text,
   View,
+  Alert,
   Platform,
+  AsyncStorage,
 } from 'react-native';
 
 import Scene from './views/Scene'
@@ -18,11 +20,9 @@ import DrawerView from './views/DrawerView'
 import Gua from './views/Gua'
 import GuaDetails from './views/Gua/ItemDetails'
 import Bu from './views/Bu'
+import User from './views/User'
 import request from './request.js'
 import myApp from '../myKeys.js'
-import storage from './storage.js'
-
-const Session = storage.load({key:'currentUser'})
 
 export default class App extends Component {
 
@@ -34,7 +34,8 @@ export default class App extends Component {
       showScene: true,
       oldVersion: false,
       request: request,
-      storage: storage,
+      currentUser: '',
+      setCurrentUser: this.setCurrentUser.bind(this),
       myApp: myApp,
       nav: this.getNavigator.bind(this),
       showDrawer: this.showDrawer.bind(this),
@@ -62,18 +63,27 @@ export default class App extends Component {
     },3000)
   }
 
+  isCurrentUser() {
+    AsyncStorage.getItem('currentUser')
+    .then(result => {
+      if (result)
+        this.setState({currentUser: result, isLogin: true})
+    })
+  }
+
+
   hideSign() {
     this.setState({isLogin: true})
   }
 
-  isCurrentUser() {
-    if (Session)
-      this.setState({isLogin: true})
-  }
 
   checkPlatform() {
     if (Platform.Version < 21)
       this.setState({oldVersion: true})
+  }
+
+  setCurrentUser(currentUser) {
+    this.setState({currentUser: currentUser})
   }
 
   backPress() {
@@ -99,12 +109,14 @@ export default class App extends Component {
       return <GuaDetails  navigator={navigator}  {...this.state}/>
     else if (route.name === 'bu') 
       return <Bu navigator={navigator} {...this.state}/>
+    else if (route.name === 'user') 
+      return <User navigator={navigator} {...this.state}/>
     else
       return <Home  navigator={navigator} {...this.state}/>
   }
 
   renderDrawerView() {
-    return <DrawerView nav={this.getNavigator.bind(this)} />
+    return <DrawerView {...this.state} />
   }
 
   getNavigator(name, carryData) {
@@ -134,6 +146,8 @@ export default class App extends Component {
     let showScene = this.state.showScene
     let oldVersion = this.state.oldVersion
     let isLogin = this.state.isLogin
+    let setCurrentUser = this.state.setCurrentUser
+    let currentUser = this.state.currentUser
     if (showScene)
       return( 
           <View style={{flex: 1}}>
@@ -145,7 +159,7 @@ export default class App extends Component {
       return(
           <View style={{flex: 1}}>
             <StatusBar hidden={oldVersion ? false : true}/>
-            <Sign hideSign={this.hideSign.bind(this)} storage={storage}/>
+            <Sign hideSign={this.hideSign.bind(this)} setCurrentUser={setCurrentUser} currentUser={currentUser}/>
           </View>
         )
     return (

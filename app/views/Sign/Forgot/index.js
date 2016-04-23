@@ -48,13 +48,14 @@ export default class extends Component {
     let request = this.props.request
     let body = {email: email}
     fetch(url, request('post', body))
-    .then(res => {
-      if (res.ok) {
+    .then(res => res.json())
+    .then(json => {
+      if (!json.code) {
         Alert.alert(settings.tips.CN.success, settings.tips.CN.reset)
         this.setState({email: ''})
       }
       else
-        Alert.alert(settings.tips.CN.failed, JSON.parse(res._bodyInit).error)
+        Alert.alert(settings.tips.CN.failed, json.error)
     })
   }
 

@@ -1,11 +1,15 @@
- const avatarBG = require('../images/avatarBG.png')
- const e = require('../images/yie.png')
- const categories = require('../images/categories.png')
- const gua = require('../images/gua.png')
- const bu = require('../images/bu.png')
- const user = require('../images/user.png')
- const settings = require('../images/settings.png')
- const back = require('../images/back.png')
+const avatarBG = require('../images/avatarBG.png')
+const e = require('../images/yie.png')
+const categories = require('../images/categories.png')
+const gua = require('../images/gua.png')
+const bu = require('../images/bu.png')
+const user = require('../images/user.png')
+const settings = require('../images/settings.png')
+const back = require('../images/back.png')
+const mark = require('../images/mark.png')
+const note = require('../images/note.png')
+const account = require('../images/account.png')
+const plan = require('../images/plan.png')
 
 export default {
   url: {
@@ -34,6 +38,10 @@ export default {
     user: user,
     settings: settings,
     back: back,
+    mark: mark,
+    note: note,
+    account: account,
+    plan: plan,
   },
   valid: {
     CN: {
@@ -43,6 +51,7 @@ export default {
       longPassword: '密码长度必须20位以内',
       diffPassword: '两次密码不一致',
       shouldFill: '请键入用户名和密码',
+      invalidFeedback: '反馈内容不能为空',
     }
   },
   tips: {
@@ -52,6 +61,10 @@ export default {
       bu: '占卜解惑',
       user: '个人中心',
       settings: '设置',
+      mark: '收藏的卦',
+      account: '我的帐户',
+      note: '议过的卦',
+      plan: '习易计划',
       submit: '提交',
       signIn: '登录',
       signUp: '注册',

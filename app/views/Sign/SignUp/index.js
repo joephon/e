@@ -83,8 +83,9 @@ export default class extends Component {
      let body = {email: email, password: password, username: username}
      let url = settings.url.signUp
      fetch(url, request('post',body))
-     .then((res) => {
-      if (res.ok) {
+     .then(res => res.json())
+     .then(json => {
+      if (!json.code) {
         Alert.alert(
           settings.tips.CN.success, 
           settings.tips.CN.welcome,
@@ -97,7 +98,7 @@ export default class extends Component {
         )
       }
       else
-        Alert.alert(settings.tips.CN.failed, JSON.parse(res._bodyInit).error)
+        Alert.alert(settings.tips.CN.failed, json.error)
      })
   }
 

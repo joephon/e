@@ -20,7 +20,8 @@ export default class extends Component {
       valid: valid,
       request: request,
       hideSign: this.props.hideSign,
-      storage: this.props.storage,
+      setCurrentUser: this.props.setCurrentUser,
+      currentUser: this.props.currentUser,
     }
   }
 

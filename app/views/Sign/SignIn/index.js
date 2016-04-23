@@ -8,6 +8,7 @@ import React, {
   Alert,
   ToastAndroid,
   TouchableOpacity,
+  AsyncStorage,
 } from 'react-native'
 
 import settings from '../../../settings.js'
@@ -50,21 +51,23 @@ export default class extends Component {
 
   signIn(username, password) {
     let request = this.props.request
+    let setCurrentUser = this.props.setCurrentUser
     let url = settings.url.signIn
     let body = {username: username, password: password}
-    let storage = this.props.storage
     fetch(url, request('post',body))
-     .then((res) => {
-      if (res.ok) {
-        storage.save({
-          key: 'currentUser',
-          details: res._bodyInit
+    .then(res => res.json())
+    .then(json => {
+      if (!json.code) {
+        AsyncStorage.setItem('currentUser',JSON.stringify(json))
+        .then(() => AsyncStorage.getItem('currentUser'))
+        .then(result => {
+          setCurrentUser(JSON.stringify(result))
+          this.props.hideSign()
         })
-        this.props.hideSign()
       }
       else
-        Alert.alert(settings.tips.CN.failed, JSON.parse(res._bodyInit).error)
-     })
+        Alert.alert('j', json.error)
+    })
   }
 
   render() {

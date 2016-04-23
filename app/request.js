@@ -1,16 +1,13 @@
 import myApp from '../myKeys.js'
-import storage from './storage.js'
 
-const Session = storage.load({key: 'currentUser'})
-
-export default (method, body) => {
+export default (method, body, token) => {
   let request = {
     method: method.toUpperCase(),
     headers: {
       'Content-type' : 'application/json',
       'X-LC-Id' : myApp.AppId,
       'X-LC-Key' : myApp.AppKey,
-      'X-LC-Session' : Session,
+      'X-LC-Session' : token,
     }
   }
   if (body)
