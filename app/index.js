@@ -21,6 +21,9 @@ import Bu from './views/Bu'
 import request from './request.js'
 import myApp from '../myKeys.js'
 import storage from './storage.js'
+
+const Session = storage.load({key:'currentUser'})
+
 export default class App extends Component {
 
   constructor(props) {
@@ -49,6 +52,7 @@ export default class App extends Component {
 
   componentDidMount() {
     this.hideScene()
+    this.isCurrentUser()
   }
 
   hideScene() {
@@ -60,6 +64,11 @@ export default class App extends Component {
 
   hideSign() {
     this.setState({isLogin: true})
+  }
+
+  isCurrentUser() {
+    if (Session)
+      this.setState({isLogin: true})
   }
 
   checkPlatform() {
