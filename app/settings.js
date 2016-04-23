@@ -68,6 +68,7 @@ export default {
       submit: '提交',
       signIn: '登录',
       signUp: '注册',
+      signOut: '退出登陆',
       toSignIn: '前往登录',
       toSignUp: '前往注册',
       forgot: '忘记密码',

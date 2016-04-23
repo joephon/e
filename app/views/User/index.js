@@ -18,6 +18,7 @@ import settings from '../../settings.js'
 export default class User extends Component {
 
   render() {
+    let signOutFunc = this.props.signOut
     let back = this.props.back
     let currentUser = JSON.parse(this.props.currentUser)
     let mark = settings.icons.mark
@@ -28,6 +29,7 @@ export default class User extends Component {
     let accountText = settings.tips.CN.account
     let noteText = settings.tips.CN.note
     let planText = settings.tips.CN.plan
+    let signOut = settings.tips.CN.signOut
     return(
         <View style={styles.container}>
           <ToolbarAndroid
@@ -70,6 +72,11 @@ export default class User extends Component {
             <View style={styles.options}>
               <Image style={styles.optionIcon} source={plan} />
               <Text>{planText}</Text>
+            </View>
+          </TouchableNativeFeedback>
+          <TouchableNativeFeedback onPress={signOutFunc}>
+            <View style={styles.signOut}>
+              <Text style={styles.signOutText}>{signOut}</Text>
             </View>
           </TouchableNativeFeedback>
         </View>

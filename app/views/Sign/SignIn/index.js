@@ -61,7 +61,7 @@ export default class extends Component {
         AsyncStorage.setItem('currentUser',JSON.stringify(json))
         .then(() => AsyncStorage.getItem('currentUser'))
         .then(result => {
-          setCurrentUser(JSON.stringify(result))
+          setCurrentUser(result)
           this.props.hideSign()
         })
       }

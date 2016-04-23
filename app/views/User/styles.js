@@ -70,6 +70,22 @@ export default {
   optionText: {
 
   },
+  signOut: {
+    flex: 1,
+    position: 'relative',
+    // position: 'absolute',
+    left: 0,
+    bottom: -70,
+    // alignSelf: 'center',
+    height: 50,
+    backgroundColor: '#eee'
+  },
+  signOutText: {
+    marginTop: 12,
+    fontSize: 18,
+    textAlign: 'center',
+    color: '#777',
+  }
 }
 
 

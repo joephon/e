@@ -35,6 +35,7 @@ export default class App extends Component {
       oldVersion: false,
       request: request,
       currentUser: '',
+      signOut: this.signOut.bind(this),
       setCurrentUser: this.setCurrentUser.bind(this),
       myApp: myApp,
       nav: this.getNavigator.bind(this),
@@ -71,6 +72,10 @@ export default class App extends Component {
     })
   }
 
+  signOut() {
+    AsyncStorage.removeItem('currentUser')
+    .then(() => this.setState({isLogin: false}))
+  }
 
   hideSign() {
     this.setState({isLogin: true})
