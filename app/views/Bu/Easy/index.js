@@ -53,7 +53,7 @@ export default class Easy extends Component {
   }
 
   shake() {
-    for (let i = 0; i < 20; i ++) {
+    for (let i = 0; i < 40; i ++) {
       setTimeout(() => {
         this.setState({deg: this.state.deg + 18})
       },i * 10)
@@ -172,7 +172,7 @@ export default class Easy extends Component {
           }
         ]
       )
-    }, 500)
+    }, 300)
   }
 
   render() {

@@ -14,7 +14,9 @@ export default class Strict extends Component {
   render() {
     return(
         <View style={styles.container}>
-          <Text>Hi I am page 1</Text>
+          <View style={styles.view} >
+            <Text style={styles.text}>敬请期待...</Text>
+          </View>
         </View>
       )
   }

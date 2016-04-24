@@ -17,6 +17,12 @@ import settings from '../../settings.js'
 
 export default class User extends Component {
 
+  nav() {
+    let nav = this.props.nav
+    let account = settings.routes.account
+    nav(account)
+  }
+
   render() {
     let signOutFunc = this.props.signOut
     let back = this.props.back
@@ -62,7 +68,7 @@ export default class User extends Component {
               </View>
             </TouchableNativeFeedback>
           </View>
-          <TouchableNativeFeedback>
+          <TouchableNativeFeedback onPress={this.nav.bind(this)}>
             <View style={styles.options}>
               <Image style={styles.optionIcon} source={account} />
               <Text>{accountText}</Text>
@@ -75,8 +81,10 @@ export default class User extends Component {
             </View>
           </TouchableNativeFeedback>
           <TouchableNativeFeedback onPress={signOutFunc}>
-            <View style={styles.signOut}>
-              <Text style={styles.signOutText}>{signOut}</Text>
+            <View style={styles.signOutWrap}>
+              <View style={styles.signOut}>
+                <Text style={styles.signOutText}>{signOut}</Text>
+              </View>
             </View>
           </TouchableNativeFeedback>
         </View>

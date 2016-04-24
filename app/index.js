@@ -21,8 +21,14 @@ import Gua from './views/Gua'
 import GuaDetails from './views/Gua/ItemDetails'
 import Bu from './views/Bu'
 import User from './views/User'
+import Account from './views/User/Account'
+import Username from './views/User/Account/Username'
+import Password from './views/User/Account/Password'
+import Phone from './views/User/Account/Phone'
+import Email from './views/User/Account/Email'
 import request from './request.js'
 import myApp from '../myKeys.js'
+import settings from './settings.js'
 
 export default class App extends Component {
 
@@ -37,6 +43,7 @@ export default class App extends Component {
       currentUser: '',
       signOut: this.signOut.bind(this),
       setCurrentUser: this.setCurrentUser.bind(this),
+      updateCurrentUser: this.updateCurrentUser.bind(this),
       myApp: myApp,
       nav: this.getNavigator.bind(this),
       showDrawer: this.showDrawer.bind(this),
@@ -72,6 +79,26 @@ export default class App extends Component {
     })
   }
 
+  updateCurrentUser() {
+    let currentUser = JSON.parse(this.state.currentUser)
+    let userId = currentUser.objectId
+    let url = `${settings.url.signUp}/${userId}`
+    let request = this.state.request
+    let token = currentUser.sessionToken
+    fetch(url, request('get'))
+    .then(res => res.json())
+    .then(json => {
+      if (!json.code) {
+        json.sessionToken = token
+        AsyncStorage.setItem('currentUser', JSON.stringify(json))
+        .then(() => AsyncStorage.getItem('currentUser'))
+        .then(result => this.setCurrentUser(result))
+      }
+      else
+        Alert.alert(settings.tips.CN.failed, settings.tips.CN.networkError)
+    })
+  }
+
   signOut() {
     AsyncStorage.removeItem('currentUser')
     .then(() => this.setState({isLogin: false}))
@@ -104,20 +131,32 @@ export default class App extends Component {
   }
 
   renderScene(route, navigator, carryData) {
-    if (route.name === 'home') 
+    switch(route.name) {
+      case 'home':
       return <Home  navigator={navigator} {...this.state}/>
-    else if (route.name === 'drawerView') 
+      case 'drawerView': 
       return <DrawerView  navigator={navigator} />
-    else if (route.name === 'gua') 
+      case 'gua': 
       return <Gua  navigator={navigator} {...this.state}/>
-    else if (route.name === 'guaDetails') 
+      case 'guaDetails':
       return <GuaDetails  navigator={navigator}  {...this.state}/>
-    else if (route.name === 'bu') 
+      case 'bu':
       return <Bu navigator={navigator} {...this.state}/>
-    else if (route.name === 'user') 
+      case 'user':
       return <User navigator={navigator} {...this.state}/>
-    else
+      case 'account':
+      return <Account navigator={navigator} {...this.state}/>
+      case 'modifyUsername':
+      return <Username navigator={navigator} {...this.state}/>
+      case 'modifyPassword':
+      return <Password navigator={navigator} {...this.state}/>
+      case 'modifyEmail':
+      return <Email navigator={navigator} {...this.state}/>
+      case 'modifyPhone':
+      return <Phone navigator={navigator} {...this.state}/>
+      default :
       return <Home  navigator={navigator} {...this.state}/>
+    }
   }
 
   renderDrawerView() {

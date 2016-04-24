@@ -66,7 +66,7 @@ export default class extends Component {
         })
       }
       else
-        Alert.alert('j', json.error)
+        Alert.alert(settings.tips.CN.failed, json.error)
     })
   }
 
