@@ -7,8 +7,8 @@ import React, {
   Alert,
   ToolbarAndroid,
   TouchableNativeFeedback,
-  Modal,
   Image,
+  CameraRoll,
 } from 'react-native'
 
 import styles from './styles.js'
@@ -44,6 +44,16 @@ export default class Account extends Component {
     let modifyPhone = settings.routes.modifyPhone
     let nav = this.props.nav 
     nav(modifyPhone)
+  }
+
+  ooxx() {
+    CameraRoll.getPhotos({
+      first: 1,
+      
+    })
+    .then(data => {
+      Alert.alert('aaa',JSON.stringify(data))
+    })
   }
 
   render() {
@@ -92,7 +102,7 @@ export default class Account extends Component {
                   <Text style={styles.value}>**********</Text>
                 </View>
               </TouchableNativeFeedback>
-              <TouchableNativeFeedback>
+              <TouchableNativeFeedback onPress={this.ooxx.bind(this)}>
                 <View style={styles.uploadAvatar}>
                   <Text style={styles.key}>{uploadAvatar}</Text>
                   <Image style={styles.avatar} source={currentUser.avatar || e}/>

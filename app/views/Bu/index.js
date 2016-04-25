@@ -19,7 +19,7 @@ export default class Bu extends Component {
     super(props)
     this.state = {
       pageIndex: 0,
-      pos: -190,
+      pos: -187,
     }
   }
 
@@ -55,14 +55,14 @@ export default class Bu extends Component {
     if (pageIndex == 1) {
       for (let i = 1; i <= 10; i ++) {
         setTimeout(() => {
-          this.setState({pos: pos + 39 * i})
+          this.setState({pos: pos + 36 * i})
         }, i * 10)
       }
     }
     else {
       for (let i = 1; i <= 10; i ++) {
         setTimeout(() => {
-          this.setState({pos: pos + -39 * i})
+          this.setState({pos: pos + -36 * i})
         }, i * 10)
       }
     }

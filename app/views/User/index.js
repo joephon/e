@@ -80,13 +80,13 @@ export default class User extends Component {
               <Text>{planText}</Text>
             </View>
           </TouchableNativeFeedback>
-          <TouchableNativeFeedback onPress={signOutFunc}>
-            <View style={styles.signOutWrap}>
+          <View style={styles.signOutWrap}>
+            <TouchableNativeFeedback onPress={signOutFunc}>
               <View style={styles.signOut}>
                 <Text style={styles.signOutText}>{signOut}</Text>
               </View>
-            </View>
-          </TouchableNativeFeedback>
+            </TouchableNativeFeedback>
+          </View>
         </View>
       )
   }
