@@ -11,8 +11,9 @@ import React, {
   Alert,
   Platform,
   AsyncStorage,
-} from 'react-native';
+} from 'react-native'
 
+// const {ImagePickerManager} = NativeModules
 import { ImagePickerManager } from 'NativeModules'
 
 import Scene from './views/Scene'
@@ -29,6 +30,7 @@ import Password from './views/User/Account/Password'
 import Phone from './views/User/Account/Phone'
 import Email from './views/User/Account/Email'
 import request from './request.js'
+import upload from './upload.js'
 import myApp from '../myKeys.js'
 import settings from './settings.js'
 
@@ -42,6 +44,7 @@ export default class App extends Component {
       showScene: true,
       oldVersion: false,
       request: request,
+      upload: upload,
       ImagePickerManager: ImagePickerManager,
       currentUser: '',
       signOut: this.signOut.bind(this),

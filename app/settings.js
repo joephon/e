@@ -19,6 +19,7 @@ export default {
     signUp: 'https://api.leancloud.cn/1.1/users',
     signIn: 'https://api.leancloud.cn/1.1/login',
     reset: 'https://api.leancloud.cn/1.1/requestPasswordReset',
+    files: 'https://api.leancloud.cn/1.1/files', 
   },
   routes: {
     home: 'home',

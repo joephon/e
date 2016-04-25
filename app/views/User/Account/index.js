@@ -51,50 +51,46 @@ export default class Account extends Component {
     let ImagePickerManager = this.props.ImagePickerManager
     let cameraInit = settings.cameraInit
     ImagePickerManager.showImagePicker(cameraInit, (response) => {
-      // console.log('Response = ', response)
-      // if (response.didCancel) 
-      //   console.log('User cancelled image picker')
-      // else if (response.error) 
-      //   console.log('ImagePickerManager Error: ', response.error)
-      // else if (response.customButton) 
-      //   console.log('User tapped custom button: ', response.customButton)
-      // else {
-      //   // uri (on iOS)
-      //   // const source = {uri: response.uri.replace('file://', ''), isStatic: true}
-      //   // uri (on android)
-        const source = {uri: response.uri, isStatic: true}
-        this.setState({avatarSource: source})
+      const source = {uri: response.uri, isStatic: true}
+      this.setState({avatarSource: source}, () => this.upload(response))
     })
   }
 
-  goCamera() {
-    let ImagePickerManager = this.props.ImagePickerManager
-    let cameraInit = settings.cameraInit
-    Alert.alert(
-        '上传图片',
-        'cool',
-        [
-          {
-            text: '使用照相机', onPress: () => {
-              ImagePickerManager.launchCamera(cameraInit, res => {
-                const source = {uri: res.uri, isStatic: true}
-                this.setState({avatarSource: source})
-              })
-            } 
-          },
-          {
-            text: '使用本地相册', onPress: () => {
-              ImagePickerManager.launchImageLibrary(cameraInit, res => {
-                const source = {uri: res.uri, isStatic: true}
-                this.setState({avatarSource: source})
-              })
-            } 
-          },
-          {
-            text: '取消'
-          }
-        ]
-      )
+  upload(response) {
+    let token = JSON.parse(this.props.currentUser).sessionToken
+    let url = `${settings.url.files}/${response.fileName}`
+    let upload = this.props.upload
+    let formData = new FormData()
+    formData.append(response.data)
+    fetch(url, upload('post', response.data, token))
+    .then(res => res.json())
+    .then(json => {
+      if (!json.code) {
+        this.updateUser(json)
+      }
+      else
+        Alert.alert('failed',json.error)
+    })
+  }
+
+  updateUser(json) {
+    let updateCurrentUser = this.props.updateCurrentUser
+    let currentUser = JSON.parse(this.props.currentUser)
+    let token = currentUser.sessionToken
+    let userId = currentUser.objectId
+    let url = `${settings.url.signUp}/${userId}`
+    let body = {avatarUrl: json.url, avatarId: json.objectId}
+    let request = this.props.request
+    fetch(url, request('put', body, token))
+    .then(res => res.json())
+    .then(json => {
+      if (!json.code) {
+        updateCurrentUser()
+        Alert.alert('ok', '上传成功')
+      }
+      else
+        Alert.alert('failed',json.error)
+    })
   }
 
   render() {
@@ -147,11 +143,10 @@ export default class Account extends Component {
               <TouchableNativeFeedback onPress={this.showUpload.bind(this)}>
                 <View style={styles.uploadAvatar}>
                   <Text style={styles.key}>{uploadAvatar}</Text>
-                  <Image style={styles.avatar} source={currentUser.avatar || e}/>
+                  <Image style={styles.avatar} source={{uri:currentUser.avatarUrl} || e}/>
                 </View>
               </TouchableNativeFeedback>
             </View>
-            <Image source={avatarSource} />
         </View>
       )
   }
