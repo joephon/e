@@ -13,6 +13,8 @@ import React, {
   AsyncStorage,
 } from 'react-native';
 
+import { ImagePickerManager } from 'NativeModules'
+
 import Scene from './views/Scene'
 import Sign from './views/Sign'
 import Home from './views/Home'
@@ -40,6 +42,7 @@ export default class App extends Component {
       showScene: true,
       oldVersion: false,
       request: request,
+      ImagePickerManager: ImagePickerManager,
       currentUser: '',
       signOut: this.signOut.bind(this),
       setCurrentUser: this.setCurrentUser.bind(this),

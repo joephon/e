@@ -14,11 +14,12 @@ import React, {
 import styles from './styles.js'
 import settings from '../../../settings.js'
 
+
 export default class Account extends Component {
   constructor(props) {
     super(props)
     this.state = {
-
+      avatarSource: '',
     }
   }
 
@@ -46,14 +47,54 @@ export default class Account extends Component {
     nav(modifyPhone)
   }
 
-  ooxx() {
-    CameraRoll.getPhotos({
-      first: 1,
-      
+  showUpload() {
+    let ImagePickerManager = this.props.ImagePickerManager
+    let cameraInit = settings.cameraInit
+    ImagePickerManager.showImagePicker(cameraInit, (response) => {
+      // console.log('Response = ', response)
+      // if (response.didCancel) 
+      //   console.log('User cancelled image picker')
+      // else if (response.error) 
+      //   console.log('ImagePickerManager Error: ', response.error)
+      // else if (response.customButton) 
+      //   console.log('User tapped custom button: ', response.customButton)
+      // else {
+      //   // uri (on iOS)
+      //   // const source = {uri: response.uri.replace('file://', ''), isStatic: true}
+      //   // uri (on android)
+        const source = {uri: response.uri, isStatic: true}
+        this.setState({avatarSource: source})
     })
-    .then(data => {
-      Alert.alert('aaa',JSON.stringify(data))
-    })
+  }
+
+  goCamera() {
+    let ImagePickerManager = this.props.ImagePickerManager
+    let cameraInit = settings.cameraInit
+    Alert.alert(
+        '上传图片',
+        'cool',
+        [
+          {
+            text: '使用照相机', onPress: () => {
+              ImagePickerManager.launchCamera(cameraInit, res => {
+                const source = {uri: res.uri, isStatic: true}
+                this.setState({avatarSource: source})
+              })
+            } 
+          },
+          {
+            text: '使用本地相册', onPress: () => {
+              ImagePickerManager.launchImageLibrary(cameraInit, res => {
+                const source = {uri: res.uri, isStatic: true}
+                this.setState({avatarSource: source})
+              })
+            } 
+          },
+          {
+            text: '取消'
+          }
+        ]
+      )
   }
 
   render() {
@@ -66,6 +107,7 @@ export default class Account extends Component {
     let uploadAvatar = settings.tags.CN.uploadAvatar
     let unBind = settings.tags.CN.unBind
     let currentUser = JSON.parse(this.props.currentUser)
+    let avatarSource = this.state.avatarSource
     return(
         <View>
           <ToolbarAndroid
@@ -102,13 +144,14 @@ export default class Account extends Component {
                   <Text style={styles.value}>**********</Text>
                 </View>
               </TouchableNativeFeedback>
-              <TouchableNativeFeedback onPress={this.ooxx.bind(this)}>
+              <TouchableNativeFeedback onPress={this.showUpload.bind(this)}>
                 <View style={styles.uploadAvatar}>
                   <Text style={styles.key}>{uploadAvatar}</Text>
                   <Image style={styles.avatar} source={currentUser.avatar || e}/>
                 </View>
               </TouchableNativeFeedback>
             </View>
+            <Image source={avatarSource} />
         </View>
       )
   }

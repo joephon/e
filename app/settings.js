@@ -10,8 +10,10 @@ const mark = require('../images/mark.png')
 const note = require('../images/note.png')
 const account = require('../images/account.png')
 const plan = require('../images/plan.png')
+import cameraInit from './cameraInit.js'
 
 export default {
+  cameraInit: cameraInit,
   url: {
     feedback: 'https://api.leancloud.cn/1.1/feedback',
     signUp: 'https://api.leancloud.cn/1.1/users',
