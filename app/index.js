@@ -45,7 +45,6 @@ export default class App extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      version: 1.1,
       carryData: [],
       isLogin: false,
       showScene: true,
@@ -81,7 +80,7 @@ export default class App extends Component {
 
   checkVersion() {
     let firToken = myApp.FIR
-    let version = this.state.version
+    let version = myApp.V
     let checkUrl = `${settings.url.firUpdate}${firToken}`
     fetch(checkUrl, {method: 'GET'})
     .then(res => res.json())
