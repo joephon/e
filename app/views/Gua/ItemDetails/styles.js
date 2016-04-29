@@ -52,7 +52,25 @@ export default {
   img: {
     width: 70,
     height: 110,
-  }
+  },
+  details: {
+    overflow: 'hidden',
+    paddingHorizontal: 20,
+    paddingVertical: 20,
+    backgroundColor: '#f5f5f5',
+  },
+  detailsTip: {
+    justifyContent: 'center',
+    height: 40,
+    marginBottom: 20,
+    paddingLeft: 5,
+    borderRadius: 3,
+    backgroundColor: '#9d55b8'
+  },
+  detailsText: {
+    fontSize: 18,
+    color: '#fff',
+  },
 }
 
 
