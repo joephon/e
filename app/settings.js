@@ -15,6 +15,7 @@ import cameraInit from './cameraInit.js'
 export default {
   cameraInit: cameraInit,
   url: {
+    firUpdate: 'http://api.fir.im/apps/latest/57112bb1748aac4141000004?api_token=',
     qiniu: 'http://7xtj5o.com1.z0.glb.clouddn.com/',
     feedback: 'https://api.leancloud.cn/1.1/feedback',
     signUp: 'https://api.leancloud.cn/1.1/users',

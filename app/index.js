@@ -11,6 +11,8 @@ import React, {
   Alert,
   Platform,
   AsyncStorage,
+  Linking,
+  ToastAndroid,
 } from 'react-native'
 
 // const {ImagePickerManager} = NativeModules
@@ -43,6 +45,7 @@ export default class App extends Component {
   constructor(props) {
     super(props)
     this.state = {
+      version: 1.1,
       carryData: [],
       isLogin: false,
       showScene: true,
@@ -73,6 +76,37 @@ export default class App extends Component {
   componentDidMount() {
     this.hideScene()
     this.isCurrentUser()
+    this.checkVersion()
+  }
+
+  checkVersion() {
+    let firToken = myApp.FIR
+    let version = this.state.version
+    let checkUrl = `${settings.url.firUpdate}${firToken}`
+    fetch(checkUrl, {method: 'GET'})
+    .then(res => res.json())
+    .then(json => {
+      if (!json.code) {
+        let currentVersion = json.version
+        let updateUrl = json.install_url
+        if (currentVersion > version) {
+          Alert.alert(
+            '有新版本哦，安装否',
+            json.changelog,
+            [
+              {
+                text: '我不！',
+                onPress: () => ToastAndroid.show('算你狠',ToastAndroid.SHORT)
+              },
+              {
+                text: '好！',
+                onPress: () => Linking.openURL(updateUrl)
+              },
+            ]
+          )
+        }
+      }
+    })
   }
 
   hideScene() {
