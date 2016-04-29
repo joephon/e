@@ -15,6 +15,7 @@ import React, {
 
 // const {ImagePickerManager} = NativeModules
 import { ImagePickerManager } from 'NativeModules'
+import qiniu from 'react-native-qiniu'
 
 import Scene from './views/Scene'
 import Sign from './views/Sign'
@@ -34,6 +35,9 @@ import upload from './upload.js'
 import myApp from '../myKeys.js'
 import settings from './settings.js'
 
+qiniu.conf.ACCESS_KEY = myApp.AK 
+qiniu.conf.SECRET_KEY = myApp.SK
+
 export default class App extends Component {
 
   constructor(props) {
@@ -46,6 +50,7 @@ export default class App extends Component {
       request: request,
       upload: upload,
       ImagePickerManager: ImagePickerManager,
+      qiniu: qiniu,
       currentUser: '',
       signOut: this.signOut.bind(this),
       setCurrentUser: this.setCurrentUser.bind(this),

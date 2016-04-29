@@ -51,7 +51,7 @@ export default class Account extends Component {
     let ImagePickerManager = this.props.ImagePickerManager
     let cameraInit = settings.cameraInit
     ImagePickerManager.showImagePicker(cameraInit, (response) => {
-      const source = {uri: response.uri, isStatic: true}
+      const source = {uri: response.path, isStatic: true}
       this.setState({avatarSource: source}, () => this.upload(response))
     })
   }
@@ -60,16 +60,16 @@ export default class Account extends Component {
     let token = JSON.parse(this.props.currentUser).sessionToken
     let url = `${settings.url.files}/${response.fileName}`
     let upload = this.props.upload
-    let formData = new FormData()
-    formData.append(response.data)
-    fetch(url, upload('post', response.data, token))
-    .then(res => res.json())
-    .then(json => {
-      if (!json.code) {
-        this.updateUser(json)
-      }
+    let qiniu = this.props.qiniu
+    let putPolicy = new qiniu.auth.PutPolicy2({
+      scope: `yiefile:${response.fileName}`
+    })
+    let qiniuToken = putPolicy.token()
+    qiniu.rpc.uploadImage(response.uri, response.fileName, qiniuToken, (res) => {
+      if (res.ok)
+        this.updateUser(JSON.parse(res._bodyInit))
       else
-        Alert.alert('failed',json.error)
+         Alert.alert('failed',JSON.stringify(res))
     })
   }
 
@@ -79,7 +79,7 @@ export default class Account extends Component {
     let token = currentUser.sessionToken
     let userId = currentUser.objectId
     let url = `${settings.url.signUp}/${userId}`
-    let body = {avatarUrl: json.url, avatarId: json.objectId}
+    let body = {avatarUrl: settings.url.qiniu + json.key, avatarId: json.hash}
     let request = this.props.request
     fetch(url, request('put', body, token))
     .then(res => res.json())

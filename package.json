@@ -9,6 +9,7 @@
     "react": "^0.14.8",
     "react-native": "^0.23.1",
     "react-native-image-picker": "^0.18.15",
+    "react-native-qiniu": "^0.1.0",
     "validator": "^5.2.0"
   }
 }

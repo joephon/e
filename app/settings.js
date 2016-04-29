@@ -15,6 +15,7 @@ import cameraInit from './cameraInit.js'
 export default {
   cameraInit: cameraInit,
   url: {
+    qiniu: 'http://7xtj5o.com1.z0.glb.clouddn.com/',
     feedback: 'https://api.leancloud.cn/1.1/feedback',
     signUp: 'https://api.leancloud.cn/1.1/users',
     signIn: 'https://api.leancloud.cn/1.1/login',
