@@ -21,7 +21,7 @@ export default class Gua extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      dataSource: ds.cloneWithRows(this.props.source),
+      dataSource: ds.cloneWithRows(this.props.markSource || this.props.source),
     }
   }
 

@@ -47,8 +47,10 @@ export default class App extends Component {
     super(props)
     this.state = {
       carryData: [],
+      markSource: null,
       source: source,
       setCarryData: this.setCarryData.bind(this),
+      setMarkSource: this.setMarkSource.bind(this),
       isLogin: false,
       showScene: true,
       oldVersion: false,
@@ -62,6 +64,7 @@ export default class App extends Component {
       updateCurrentUser: this.updateCurrentUser.bind(this),
       myApp: myApp,
       nav: this.getNavigator.bind(this),
+      replaceNav: this.getReplaceNav.bind(this),
       showDrawer: this.showDrawer.bind(this),
       back: this.back.bind(this),
     }
@@ -169,6 +172,10 @@ export default class App extends Component {
     this.setState({carryData: carryData})
   }
 
+  setMarkSource(markSource, fn) {
+    this.setState({markSource: markSource}, ()=> fn)
+  }
+
   backPress() {
     const nav = this.refs.navigator
     if (!nav)
@@ -220,7 +227,14 @@ export default class App extends Component {
     const nav = this.refs.navigator
     const drawer = this.refs.drawer
     drawer.closeDrawer()
-    nav.push({name:name})
+    nav.push({name: name})
+  }
+
+  getReplaceNav(name) {
+    const nav = this.refs.navigator
+    const drawer = this.refs.drawer
+    drawer.closeDrawer()
+    nav.resetTo({name: name}) 
   }
 
   back() {

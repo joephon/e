@@ -17,10 +17,50 @@ import settings from '../../settings.js'
 
 export default class User extends Component {
 
-  nav() {
+  componentWillMount() {
+    this.getMark()
+  }
+
+  componentWillUnmount() {
+    this.props.setMarkSource('')
+  }
+
+  goAccount() {
     let nav = this.props.nav
     let account = settings.routes.account
     nav(account)
+  }
+
+  goMark() {
+    let nav = this.props.nav
+    let gua = settings.routes.gua
+    let source = this.props.source
+    let currentUser = JSON.parse(this.props.currentUser)
+    let markArr = currentUser.markArr
+    let dataArr = []
+    source.map((item, index) => {
+      markArr.map((item2, index2) => {
+        if (item.id == item2)
+          dataArr.push(item)
+      })
+    })
+    this.props.setMarkSource(dataArr, nav(gua, dataArr))
+    // Alert.alert('ho',JSON.stringify(dataArr))
+  }
+
+  getMark() {
+    let gua = settings.routes.gua
+    let source = this.props.source
+    let currentUser = JSON.parse(this.props.currentUser)
+    let markArr = currentUser.markArr
+    let dataArr = []
+    source.map((item, index) => {
+      markArr.map((item2, index2) => {
+        if (item.id == item2)
+          dataArr.push(item)
+      })
+    }) 
+    this.props.setMarkSource(dataArr)   
   }
 
   render() {
@@ -54,7 +94,7 @@ export default class User extends Component {
             </TouchableOpacity>
           </View>
           <View style={styles.body}>
-            <TouchableNativeFeedback>
+            <TouchableNativeFeedback onPress={this.goMark.bind(this)}>
               <View style={styles.bodyItem}>
                 <Image style={styles.bodyIcon} source={mark} />
                 <Text style={styles.iconText}>{markText}</Text>
@@ -68,7 +108,7 @@ export default class User extends Component {
               </View>
             </TouchableNativeFeedback>
           </View>
-          <TouchableNativeFeedback onPress={this.nav.bind(this)}>
+          <TouchableNativeFeedback onPress={this.goAccount.bind(this)}>
             <View style={styles.options}>
               <Image style={styles.optionIcon} source={account} />
               <Text>{accountText}</Text>
