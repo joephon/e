@@ -21,35 +21,7 @@ export default class User extends Component {
     this.getMark()
   }
 
-  componentWillUnmount() {
-    this.props.setMarkSource('')
-  }
-
-  goAccount() {
-    let nav = this.props.nav
-    let account = settings.routes.account
-    nav(account)
-  }
-
-  goMark() {
-    let nav = this.props.nav
-    let gua = settings.routes.gua
-    let source = this.props.source
-    let currentUser = JSON.parse(this.props.currentUser)
-    let markArr = currentUser.markArr
-    let dataArr = []
-    source.map((item, index) => {
-      markArr.map((item2, index2) => {
-        if (item.id == item2)
-          dataArr.push(item)
-      })
-    })
-    this.props.setMarkSource(dataArr, nav(gua, dataArr))
-    // Alert.alert('ho',JSON.stringify(dataArr))
-  }
-
   getMark() {
-    let gua = settings.routes.gua
     let source = this.props.source
     let currentUser = JSON.parse(this.props.currentUser)
     let markArr = currentUser.markArr
@@ -61,6 +33,18 @@ export default class User extends Component {
       })
     }) 
     this.props.setMarkSource(dataArr)   
+  }
+
+  goAccount() {
+    let nav = this.props.nav
+    let account = settings.routes.account
+    nav(account)
+  }
+
+  goMark() {
+    let nav = this.props.nav
+    let mark = settings.routes.mark
+    nav(mark)
   }
 
   render() {

@@ -24,6 +24,7 @@ import Sign from './views/Sign'
 import Home from './views/Home'
 import DrawerView from './views/DrawerView'
 import Gua from './views/Gua'
+import Mark from './views/User/Mark'
 import GuaDetails from './views/Gua/ItemDetails'
 import Bu from './views/Bu'
 import User from './views/User'
@@ -191,11 +192,13 @@ export default class App extends Component {
   renderScene(route, navigator) {
     switch(route.name) {
       case 'home':
-      return <Home  navigator={navigator} {...this.state}/>
+      return <Home navigator={navigator} {...this.state}/>
       case 'drawerView': 
       return <DrawerView  navigator={navigator} />
       case 'gua': 
-      return <Gua  navigator={navigator} {...this.state}/>
+      return <Gua navigator={navigator} {...this.state}/>
+      case 'mark':
+      return <Mark navigator={navigator} {...this.state}/>
       case 'guaDetails':
       return <GuaDetails  navigator={navigator}  {...this.state}/>
       case 'bu':
@@ -225,8 +228,17 @@ export default class App extends Component {
     if (!carryData)
       carryData = this.state.carryData
     const nav = this.refs.navigator
+    const routes = nav.getCurrentRoutes()
     const drawer = this.refs.drawer
     drawer.closeDrawer()
+    // routes.map((item, index) => {
+    //   if (item.name == name) {
+    //     routes.splice(index, 1) 
+    //     nav.push({name: name})
+    //     return    
+    //   }
+    // })
+    // Alert.alert('ok',JSON.stringify(routes))
     nav.push({name: name})
   }
 
