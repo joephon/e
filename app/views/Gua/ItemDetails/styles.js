@@ -25,9 +25,15 @@ export default {
     backgroundColor: '#eee'
   },
   split: {
+    flex: 1,
     marginBottom: 12,
     borderBottomWidth: 2,
     borderBottomColor: '#ccc'
+  },
+  mark: {
+    top: 0,
+    right: 10,
+    position: 'absolute',
   },
   splitText: {
     paddingBottom: 3,
@@ -66,6 +72,11 @@ export default {
     paddingLeft: 5,
     borderRadius: 3,
     backgroundColor: '#9d55b8'
+  },
+  openIcon: {
+    position: 'absolute',
+    top: 8,
+    right: 10,
   },
   detailsText: {
     fontSize: 18,

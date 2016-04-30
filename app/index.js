@@ -86,7 +86,7 @@ export default class App extends Component {
     .then(res => res.json())
     .then(json => {
       if (!json.code) {
-        let currentVersion = json.version
+        let currentVersion = json.versionShort
         let updateUrl = json.install_url
         if (currentVersion > version) {
           Alert.alert(

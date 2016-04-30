@@ -7,9 +7,11 @@ const user = require('../images/user.png')
 const settings = require('../images/settings.png')
 const back = require('../images/back.png')
 const mark = require('../images/mark.png')
+const mark2 = require('../images/mark2.png')
 const note = require('../images/note.png')
 const account = require('../images/account.png')
 const plan = require('../images/plan.png')
+const open = require('../images/open.png')
 import cameraInit from './cameraInit.js'
 
 export default {
@@ -53,9 +55,11 @@ export default {
     settings: settings,
     back: back,
     mark: mark,
+    mark2: mark2,
     note: note,
     account: account,
     plan: plan,
+    open: open,
   },
   valid: {
     CN: {
@@ -95,6 +99,8 @@ export default {
       toSignUp: '前往注册',
       forgot: '忘记密码',
       success: '提交成功',
+      markSuccess: '收藏成功',
+      markDelete: '已移除收藏',
       reset: '邮件发送重置邮件，请查收',
       passwordWarning: '修改密码后必须重新登录！',
       send: '发送',
