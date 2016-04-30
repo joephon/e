@@ -15,7 +15,6 @@ import React, {
   ToastAndroid,
 } from 'react-native'
 
-// const {ImagePickerManager} = NativeModules
 import { ImagePickerManager } from 'NativeModules'
 import qiniu from 'react-native-qiniu'
 
@@ -65,7 +64,7 @@ export default class App extends Component {
       updateCurrentUser: this.updateCurrentUser.bind(this),
       myApp: myApp,
       nav: this.getNavigator.bind(this),
-      replaceNav: this.getReplaceNav.bind(this),
+      reset: this.getResetNavigator.bind(this),
       showDrawer: this.showDrawer.bind(this),
       back: this.back.bind(this),
     }
@@ -193,8 +192,8 @@ export default class App extends Component {
     switch(route.name) {
       case 'home':
       return <Home navigator={navigator} {...this.state}/>
-      case 'drawerView': 
-      return <DrawerView  navigator={navigator} />
+      // case 'drawerView': 
+      // return <DrawerView  navigator={navigator} {...this.state}/>
       case 'gua': 
       return <Gua navigator={navigator} {...this.state}/>
       case 'mark':
@@ -224,25 +223,15 @@ export default class App extends Component {
     return <DrawerView {...this.state} />
   }
 
-  getNavigator(name, carryData) {
-    if (!carryData)
-      carryData = this.state.carryData
+  getNavigator(name) {
     const nav = this.refs.navigator
     const routes = nav.getCurrentRoutes()
     const drawer = this.refs.drawer
     drawer.closeDrawer()
-    // routes.map((item, index) => {
-    //   if (item.name == name) {
-    //     routes.splice(index, 1) 
-    //     nav.push({name: name})
-    //     return    
-    //   }
-    // })
-    // Alert.alert('ok',JSON.stringify(routes))
     nav.push({name: name})
   }
 
-  getReplaceNav(name) {
+  getResetNavigator(name) {
     const nav = this.refs.navigator
     const drawer = this.refs.drawer
     drawer.closeDrawer()

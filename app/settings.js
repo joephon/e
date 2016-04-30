@@ -24,6 +24,7 @@ export default {
     signIn: 'https://api.leancloud.cn/1.1/login',
     reset: 'https://api.leancloud.cn/1.1/requestPasswordReset',
     files: 'https://api.leancloud.cn/1.1/files', 
+    comment: 'https://api.leancloud.cn/1.1/classes/Comment',
   },
   routes: {
     home: 'home',
@@ -71,6 +72,8 @@ export default {
       diffPassword: '两次密码不一致',
       shouldFill: '请键入用户名和密码',
       invalidFeedback: '反馈内容不能为空',
+      shortComment: '点评不能少于10个字',
+      longComment: '点评不能超过1000字',
     }
   },
   tips: {
@@ -90,6 +93,7 @@ export default {
       modifyAvatar: '修改头像',
       modifyPhone: '修改手机',
       submit: '提交',
+      say: '点评',
       ok: '确定',
       networkError: '网络错误',
       signIn: '登录',
@@ -107,6 +111,7 @@ export default {
       failed: '提交失败',
       thanks: '反馈已收到 ：）',
       welcome: '欢迎加入《议易》',
+      nice: 'Cool，你正在议易！',
       about: '所谓议易，便是大家都来议论《周易》，研读六十四卦，占个卜，点个爻，易就该耍着才好玩。很多人天然觉得《周易》高深莫测，隐涩难懂，实则不然！生活中处处是易：“九五之尊”、“一言九鼎”、“三阳开泰”、“否极泰来”等等诸多被用烂了的词语，都源于易。既然易如此贴近生活，为何不议(易)？',
     },
     EN: {
@@ -163,6 +168,7 @@ export default {
         password: '密码(6～20位)',
         confirmPassword: '重复密码',
       },
+      comment: '点评下卦辞、爻辞、给自己解签，或者说说你对《彖》、《象》、《文言》的看法。',
     },
     EN: {
 

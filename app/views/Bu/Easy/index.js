@@ -161,6 +161,7 @@ export default class Easy extends Component {
   }
 
   goGua(carryData) {
+    this.props.setCarryData(carryData)
     setTimeout(() => {
       Alert.alert(
         `${settings.tags.CN.youGet}${carryData.tag} 《${carryData.tip}》`,
@@ -168,7 +169,7 @@ export default class Easy extends Component {
         [
           {
             text: settings.tags.CN.view, 
-            onPress: () => this.props.nav(settings.routes.guaDetails, carryData)
+            onPress: () => this.props.nav(settings.routes.guaDetails)
           }
         ]
       )

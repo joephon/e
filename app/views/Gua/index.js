@@ -37,8 +37,8 @@ export default class Gua extends Component {
             style={styles.toolbar}
             title={settings.tips.CN.gua}
             titleColor='#fff'
-            navIcon={settings.icons.back}
-            onIconClicked={this.props.back} />
+            navIcon={settings.icons.categories}
+            onIconClicked={this.props.showDrawer} />
           <ListView
             dataSource={dataSource}
             renderRow={this.renderListItem.bind(this)}

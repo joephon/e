@@ -41,7 +41,7 @@ export default class DrawerView extends Component {
             {
               init.listItems.map((item, index) => {
                 return(
-                    <ListItem key={index} nav={this.props.nav.bind(this,item.path)} name={item.name} icon={item.icon}/>
+                    <ListItem key={index} reset={this.props.reset.bind(this,item.path)} name={item.name} icon={item.icon}/>
                   )
               })
             }

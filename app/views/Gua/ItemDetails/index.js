@@ -3,6 +3,7 @@ import React, {
   View,
   ScrollView,
   Text,
+  TextInput,
   Image,
   ToolbarAndroid,
   TouchableOpacity,
@@ -19,6 +20,7 @@ export default class ItemDetails extends Component {
     this.state = {
       detailsHeight: true,
       isMark: false,
+      comment: '',
     }
   }
 
@@ -118,10 +120,51 @@ export default class ItemDetails extends Component {
     }
   }
 
+  handleCommentChange(value) {
+    this.setState({comment: value})
+  }
+
+  handleSubmit() {
+    let comment = this.state.comment
+    let size = comment.length
+    switch(true) {
+      case size < 10:
+      ToastAndroid.show(settings.valid.CN.shortComment, ToastAndroid.SHORT)
+      break
+      case size > 1000:
+      ToastAndroid.show(settings.valid.CN.longComment, ToastAndroid.SHORT)
+      break
+      default:
+      this.send(comment)
+    }
+  }
+
+  send(comment) {
+    let currentUser = JSON.parse(this.props.currentUser)
+    let request = this.props.request
+    let url = settings.url.comment 
+    let body = {
+      guaId: this.props.carryData.id,
+      userId: currentUser.objectId,
+      comment: comment,
+    }
+    fetch(url, request('post', body))
+    .then(res => res.json())
+    .then(json => {
+      if (!json.code) {
+        Alert.alert(settings.tips.CN.success ,settings.tips.CN.nice)
+      }
+      else
+        Alert.alert(settings.tips.CN.failed, json.error)
+    })
+  }
+
   render() {
     let carryData = this.props.carryData
     let detailsHeight = this.state.detailsHeight
     let open = settings.icons.open
+    let comment = this.state.comment
+    let say = settings.tips.CN.say
     return(
         <View style={styles.container}>
           <ToolbarAndroid
@@ -171,6 +214,25 @@ export default class ItemDetails extends Component {
                     )
                 })
               }
+            </View>
+            <View style={styles.comment}>
+              <View style={styles.inputBox}>
+                <TextInput
+                  style={styles.textArea}
+                  multiline={true}
+                  numberOfLines={6}
+                  underlineColorAndroid='rgba(0,0,0,0)'
+                  placeholderTextColor='#ccc'
+                  placeholder={settings.placeholders.CN.comment}
+                  value={comment}
+                  onChangeText={this.handleCommentChange.bind(this)}/>
+              </View>
+              <View style={styles.control}>
+                <Text style={styles.warning}>{`还能写${1000 - comment.length}字`}</Text>
+                <TouchableOpacity style={styles.say} onPress={this.handleSubmit.bind(this)}>
+                  <Text style={styles.sayText}>{say}</Text>
+                </TouchableOpacity>
+              </View>
             </View>
           </ScrollView>
         </View>

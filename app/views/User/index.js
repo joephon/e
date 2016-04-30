@@ -49,7 +49,7 @@ export default class User extends Component {
 
   render() {
     let signOutFunc = this.props.signOut
-    let back = this.props.back
+    let showDrawer = this.props.showDrawer
     let currentUser = JSON.parse(this.props.currentUser)
     let mark = settings.icons.mark
     let note = settings.icons.note
@@ -66,8 +66,8 @@ export default class User extends Component {
             style={styles.toolbar} 
             title={settings.tips.CN.user}
             titleColor='#fff'
-            navIcon={settings.icons.back}
-            onIconClicked={back}
+            navIcon={settings.icons.categories}
+            onIconClicked={showDrawer}
             />
           <View style={styles.header}>
             <Image style={styles.avatar} source={{uri: currentUser.avatarUrl} || settings.icons.e} />

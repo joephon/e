@@ -70,17 +70,18 @@ export default class Bu extends Component {
   }
 
   render() {
-    let back = this.props.back
+    let categories = this.props.categories
     let pageIndex = this.state.pageIndex
     let pos = this.state.pos
+    let showDrawer = this.props.showDrawer
     return(
         <View style={styles.container}>
           <ToolbarAndroid
             style={styles.toolbar} 
             title={settings.tips.CN.bu}
             titleColor='#fff'
-            navIcon={settings.icons.back}
-            onIconClicked={back}
+            navIcon={settings.icons.categories}
+            onIconClicked={showDrawer}
             />
           <View style={styles.segment}>
             <TouchableNativeFeedback onPress={this.setPage.bind(this,0)}>

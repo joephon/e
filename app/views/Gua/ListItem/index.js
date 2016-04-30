@@ -13,7 +13,7 @@ export default class ListItem extends Component {
 
   handlePress(rowData) {
     this.props.setCarryData(rowData)
-    this.props.nav(settings.routes.guaDetails, rowData)   
+    this.props.nav(settings.routes.guaDetails)   
   }
 
   render() {
