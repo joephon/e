@@ -36,6 +36,7 @@ import request from './request.js'
 import upload from './upload.js'
 import myApp from '../myKeys.js'
 import settings from './settings.js'
+import source from './sources.js'
 
 qiniu.conf.ACCESS_KEY = myApp.AK 
 qiniu.conf.SECRET_KEY = myApp.SK
@@ -46,6 +47,8 @@ export default class App extends Component {
     super(props)
     this.state = {
       carryData: [],
+      source: source,
+      setCarryData: this.setCarryData.bind(this),
       isLogin: false,
       showScene: true,
       oldVersion: false,
@@ -162,6 +165,10 @@ export default class App extends Component {
     this.setState({currentUser: currentUser})
   }
 
+  setCarryData(carryData) {
+    this.setState({carryData: carryData})
+  }
+
   backPress() {
     const nav = this.refs.navigator
     if (!nav)
@@ -174,7 +181,7 @@ export default class App extends Component {
     return false
   }
 
-  renderScene(route, navigator, carryData) {
+  renderScene(route, navigator) {
     switch(route.name) {
       case 'home':
       return <Home  navigator={navigator} {...this.state}/>
@@ -209,11 +216,11 @@ export default class App extends Component {
 
   getNavigator(name, carryData) {
     if (!carryData)
-      carryData = ''
+      carryData = this.state.carryData
     const nav = this.refs.navigator
     const drawer = this.refs.drawer
     drawer.closeDrawer()
-    this.setState({carryData: carryData}, () => nav.push({name:name}))
+    nav.push({name:name})
   }
 
   back() {
@@ -260,7 +267,7 @@ export default class App extends Component {
         <Navigator 
           ref='navigator'
           initialRoute={{name:'home'}}           
-          renderScene={(route, navigator, carryData) => this.renderScene(route, navigator, carryData)}/>
+          renderScene={this.renderScene.bind(this)}/>
       </DrawerLayoutAndroid>
     );
   }

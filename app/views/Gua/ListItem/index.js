@@ -11,10 +11,15 @@ import settings from '../../../settings.js'
 
 export default class ListItem extends Component {
 
+  handlePress(rowData) {
+    this.props.setCarryData(rowData)
+    this.props.nav(settings.routes.guaDetails, rowData)   
+  }
+
   render() {
     let rowData = this.props.rowData
     return(
-        <TouchableNativeFeedback onPress={this.props.nav.bind(this,settings.routes.guaDetails, rowData)}>
+        <TouchableNativeFeedback onPress={this.handlePress.bind(this, rowData)}>
           <View style={styles.rowData}>
             <Image style={styles.img} source={rowData.img}/>
             <View style={styles.textBox}>

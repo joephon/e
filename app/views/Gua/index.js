@@ -11,18 +11,22 @@ import React, {
   ToolbarAndroid,
  } from 'react-native'
 
- import styles from './styles.js'
- import settings from '../../settings.js'
- import source from '../../sources.js'
- import ListItem from './ListItem'
+import styles from './styles.js'
+import settings from '../../settings.js'
+import ListItem from './ListItem'
+
+let ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2})
 
 export default class Gua extends Component {
   constructor(props) {
     super(props)
-    let ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2})
     this.state = {
-      dataSource: ds.cloneWithRows(source),
+      dataSource: ds.cloneWithRows(this.props.source),
     }
+  }
+
+  renderListItem(rowData) {
+    return <ListItem rowData={rowData} {...this.props}/>
   }
 
   render() {
@@ -37,7 +41,7 @@ export default class Gua extends Component {
             onIconClicked={this.props.back} />
           <ListView
             dataSource={dataSource}
-            renderRow={(rowData) => <ListItem rowData={rowData} {...this.props}/>}
+            renderRow={this.renderListItem.bind(this)}
            />
         </View>
       )
