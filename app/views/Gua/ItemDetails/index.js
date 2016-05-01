@@ -72,7 +72,7 @@ export default class ItemDetails extends Component {
       if (!json.code) {
         updateCurrentUser()
         this.setState({isMark: true})
-        Alert.alert(settings.tips.CN.markSuccess,carryData.gua)
+        ToastAndroid.show(settings.tips.CN.markSuccess,ToastAndroid.SHORT)
       }
       else
         Alert.alert(settings.tips.CN.failed,carryData.gua)
@@ -102,7 +102,7 @@ export default class ItemDetails extends Component {
       if (!json.code) {
         updateCurrentUser()
         this.setState({isMark: false})
-        Alert.alert(settings.tips.CN.markDelete,carryData.gua)
+        ToastAndroid.show(settings.tips.CN.markDelete, ToastAndroid.SHORT)
       }
       else
         Alert.alert(settings.tips.CN.failed,carryData.gua)

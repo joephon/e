@@ -32,7 +32,7 @@ export default class User extends Component {
           dataArr.push(item)
       })
     }) 
-    this.props.setMarkSource(dataArr)   
+    this.props.setMarkSource(dataArr)  
   }
 
   goAccount() {
