@@ -12,6 +12,9 @@ const note = require('../images/note.png')
 const account = require('../images/account.png')
 const plan = require('../images/plan.png')
 const open = require('../images/open.png')
+const sponse = require('../images/sponse.png')
+const good = require('../images/good.png')
+const trash = require('../images/delete.png')
 import cameraInit from './cameraInit.js'
 
 export default {
@@ -61,6 +64,9 @@ export default {
     account: account,
     plan: plan,
     open: open,
+    sponse: sponse,
+    good: good,
+    trash: trash,
   },
   valid: {
     CN: {
@@ -103,14 +109,22 @@ export default {
       toSignUp: '前往注册',
       forgot: '忘记密码',
       success: '提交成功',
+      like: '已赞',
+      unlike: '已消赞',
+      delete: '已删除点评',
+      deleteConfirm: '你确定吗？',
+      deleteExplain: '删除后无法恢复',
+      deleteMistake: '不，按错',
       markSuccess: '收藏成功',
       markDelete: '已移除收藏',
+      happy: '有惊无险',
       reset: '邮件发送重置邮件，请查收',
       passwordWarning: '修改密码后必须重新登录！',
       send: '发送',
       failed: '提交失败',
       thanks: '反馈已收到 ：）',
       welcome: '欢迎加入《议易》',
+      noComment: '目前没有评论',
       nice: 'Cool，你正在议易！',
       about: '所谓议易，便是大家都来议论《周易》，研读六十四卦，占个卜，点个爻，易就该耍着才好玩。很多人天然觉得《周易》高深莫测，隐涩难懂，实则不然！生活中处处是易：“九五之尊”、“一言九鼎”、“三阳开泰”、“否极泰来”等等诸多被用烂了的词语，都源于易。既然易如此贴近生活，为何不议(易)？',
     },

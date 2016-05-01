@@ -25,7 +25,29 @@ export default class Mark extends Component {
     }
   }
 
-  renderListItem(rowData) {
+  goGua() {
+    this.props.reset(settings.routes.gua)
+  }
+
+  renderListView(dataSource) {
+    if (this.state.dataSource.length > 0) 
+      <ListView
+        dataSource={dataSource}
+        renderRow={this.renderListItem.bind(this)}
+       /> 
+    else {
+      return(
+          <View style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
+            <TouchableOpacity onPress={this.goGua.bind(this)}>
+              <Image source={settings.icons.gua} style={{height: 70, width: 70}}/>
+            </TouchableOpacity>
+            <Text style={{marginTop: 15,textAlign: 'center'}}>木有收藏哦，点我</Text>
+          </View>
+        )
+    }   
+  }
+
+  renderListItem(rowData) { 
     return <ListItem rowData={rowData} {...this.props}/>
   }
 
@@ -39,10 +61,7 @@ export default class Mark extends Component {
             titleColor='#fff'
             navIcon={settings.icons.back}
             onIconClicked={this.props.back} />
-          <ListView
-            dataSource={dataSource}
-            renderRow={this.renderListItem.bind(this)}
-           />
+          {this.renderListView(dataSource)}
         </View>
       )
   }

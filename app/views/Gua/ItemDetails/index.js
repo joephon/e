@@ -2,6 +2,7 @@ import React, {
   Component,
   View,
   ScrollView,
+  ListView,
   Text,
   TextInput,
   Image,
@@ -9,10 +10,12 @@ import React, {
   TouchableOpacity,
   Alert,
   ToastAndroid,
+  ProgressBarAndroid,
 } from 'react-native'
 
 import styles from './styles.js'
 import settings from '../../../settings.js'
+import Comment from './Comment'
 
 export default class ItemDetails extends Component {
   constructor(props) {
@@ -21,7 +24,13 @@ export default class ItemDetails extends Component {
       detailsHeight: true,
       isMark: false,
       comment: '',
+      comments: null,
+      getComments: this.getComments.bind(this),
     }
+  }
+
+  componentWillMount() {
+    this.getComments()
   }
 
   componentDidMount() {
@@ -120,6 +129,21 @@ export default class ItemDetails extends Component {
     }
   }
 
+  getComments() {
+    let guaId = this.props.carryData.id 
+    let obj = JSON.stringify({guaId: guaId})
+    let query = encodeURI(`?where=${obj}`)
+    let url = `${settings.url.comment}${query}`
+    let request = this.props.request
+    fetch(url, request('get'))
+    .then(res => res.json())
+    .then(json => {
+      if (!json.code) {
+        this.setState({comments: json.results})
+      }
+    })
+  }
+
   handleCommentChange(value) {
     this.setState({comment: value})
   }
@@ -141,17 +165,21 @@ export default class ItemDetails extends Component {
 
   send(comment) {
     let currentUser = JSON.parse(this.props.currentUser)
+    currentUser.sessionToken = null
     let request = this.props.request
     let url = settings.url.comment 
     let body = {
       guaId: this.props.carryData.id,
       userId: currentUser.objectId,
+      userDetails: currentUser,
       comment: comment,
     }
     fetch(url, request('post', body))
     .then(res => res.json())
     .then(json => {
       if (!json.code) {
+        this.setState({comment: ''})
+        this.getComments()
         Alert.alert(settings.tips.CN.success ,settings.tips.CN.nice)
       }
       else
@@ -200,7 +228,7 @@ export default class ItemDetails extends Component {
                 }
               </View>
             </View>
-            <View style={[styles.details, {height: (detailsHeight ? 60 : null)}]}>
+            <View style={[styles.details, {height: (detailsHeight ? 80 : null)}]}>
               <TouchableOpacity onPress={this.changeDetailsHeight.bind(this)}>
                 <View style={[styles.detailsTip, {backgroundColor: (detailsHeight ? '#9d55b8' : '#999')}]}>
                   <Text style={styles.detailsText}>《彖》《象》《文言》</Text>
@@ -234,6 +262,7 @@ export default class ItemDetails extends Component {
                 </TouchableOpacity>
               </View>
             </View>
+            <Comment {...this.props} {...this.state}/>
           </ScrollView>
         </View>
       )

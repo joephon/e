@@ -83,13 +83,12 @@ export default {
     color: '#fff',
   },
   comment: {
-    marginTop: 20,
+    paddingVertical: 20,
     backgroundColor: '#f5f5f5',
   },
   inputBox: {
     overflow: 'hidden',
     marginHorizontal: 20,
-    marginTop: 20,
     borderRadius: 5,
     borderWidth: 1,
     borderColor: '#eee',
@@ -104,8 +103,6 @@ export default {
     flexDirection: 'row',
     alignItems: 'center',
     marginHorizontal: 20,
-    marginBottom: 20,
-    backgroundColor: '#eee',
   },
   warning: {
     flex: 1,
@@ -124,7 +121,7 @@ export default {
   },
   sayText: {
     color: '#fff',
-  }
+  },
 }
 
 
