@@ -178,7 +178,7 @@ export default class App extends Component {
 
   backPress() {
     const nav = this.refs.navigator
-    if (!nav)
+    if (!nav) 
       return false
     const routers = nav.getCurrentRoutes()
     if (routers.length > 1) {

@@ -3,6 +3,11 @@ import settings from '../../settings.js'
 export default {
   listItems: [
     {
+      name: settings.tips.CN.home,
+      path: settings.routes.home,
+      icon: settings.icons.home,
+    },
+    {
       name: settings.tips.CN.gua,
       path: settings.routes.gua,
       icon: settings.icons.gua,

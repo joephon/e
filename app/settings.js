@@ -15,6 +15,7 @@ const open = require('../images/open.png')
 const sponse = require('../images/sponse.png')
 const good = require('../images/good.png')
 const trash = require('../images/delete.png')
+const home = require('../images/home.png')
 import cameraInit from './cameraInit.js'
 
 export default {
@@ -50,6 +51,7 @@ export default {
     forgot: 'forgot',
   },
   icons: {
+    home: home,
     avatarBG: avatarBG,
     e: e,
     categories: categories,
@@ -123,6 +125,7 @@ export default {
       send: '发送',
       failed: '提交失败',
       thanks: '反馈已收到 ：）',
+      quit: '确定退出《议易》吗',
       welcome: '欢迎加入《议易》',
       noComment: '目前没有评论',
       nice: 'Cool，你正在议易！',

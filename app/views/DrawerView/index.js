@@ -6,6 +6,7 @@ import React,{
   Text,
   Image,
   StatusBar,
+  ScrollView,
   TouchableNativeFeedback,
  } from 'react-native'
 
@@ -31,7 +32,8 @@ export default class DrawerView extends Component {
   render() {
     let currentUser = JSON.parse(this.props.currentUser)
     return (
-      <View style={styles.container}>       
+      <View style={styles.container}>
+        <ScrollView>       
         <Image source={settings.icons.avatarBG} style={styles.avatarBox}>
           <Image source={{uri: currentUser.avatarUrl} || settings.icons.e} style={styles.avatar}/>
           <Text style={styles.name}>{currentUser.username || settings.tips.CN.home}</Text>
@@ -47,6 +49,7 @@ export default class DrawerView extends Component {
             }
           </View>
         </View>
+        </ScrollView>
       </View>
     )
   }

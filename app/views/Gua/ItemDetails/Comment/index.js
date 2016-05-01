@@ -207,7 +207,7 @@ export default class Comment extends Component {
     else {
       return(
           <View style={styles.progress}>
-            <ProgressBarAndroid styleAttr="Large"/>
+            <ProgressBarAndroid styleAttr='Large' color='#9d55b8'/>
           </View>
         )
     }
