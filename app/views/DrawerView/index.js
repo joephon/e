@@ -35,7 +35,7 @@ export default class DrawerView extends Component {
       <View style={styles.container}>
         <ScrollView>       
         <Image source={settings.icons.avatarBG} style={styles.avatarBox}>
-          <Image source={{uri: currentUser.avatarUrl} || settings.icons.e} style={styles.avatar}/>
+          <Image source={currentUser.avatarUrl ? {uri: currentUser.avatarUrl} : settings.icons.e} style={styles.avatar}/>
           <Text style={styles.name}>{currentUser.username || settings.tips.CN.home}</Text>
         </Image>
         <View>          

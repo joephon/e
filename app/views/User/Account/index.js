@@ -143,7 +143,7 @@ export default class Account extends Component {
               <TouchableNativeFeedback onPress={this.showUpload.bind(this)}>
                 <View style={styles.uploadAvatar}>
                   <Text style={styles.key}>{uploadAvatar}</Text>
-                  <Image style={styles.avatar} source={{uri:currentUser.avatarUrl} || e}/>
+                  <Image style={styles.avatar} source={currentUser.avatarUrl ? {uri:currentUser.avatarUrl} : e}/>
                 </View>
               </TouchableNativeFeedback>
             </View>

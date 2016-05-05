@@ -14,6 +14,12 @@ import styles from './styles.js'
 import settings from '../../../../settings.js'
 
 export default class Comment extends Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+
+    }
+  }
 
   renderLike(commentId, like, likeArr) {
     let currentUser = JSON.parse(this.props.currentUser)
@@ -156,7 +162,7 @@ export default class Comment extends Component {
         <View style={styles.wrap}>
           <View style={styles.header}>
             <View style={styles.headerLeft}>
-              <Image source={{uri:rowData.userDetails.avatarUrl} || settings.icons.e} style={styles.avatar}/>
+              <Image source={rowData.userDetails.avatarUrl ? {uri:rowData.userDetails.avatarUrl} : settings.icons.e} style={styles.avatar}/>
               <Text style={styles.username}>{rowData.userDetails.username}</Text>
             </View>
             <View style={styles.headerRight}>

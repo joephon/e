@@ -70,7 +70,7 @@ export default class User extends Component {
             onIconClicked={showDrawer}
             />
           <View style={styles.header}>
-            <Image style={styles.avatar} source={{uri: currentUser.avatarUrl} || settings.icons.e} />
+            <Image style={styles.avatar} source={currentUser.avatarUrl ? {uri: currentUser.avatarUrl} : settings.icons.e} />
             <TouchableOpacity>
               <View style={styles.userName}>
                 <Text style={styles.userText}>{currentUser.username}</Text>
